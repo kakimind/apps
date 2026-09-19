@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kakimind — 만든 앱들</title>
+<meta name="description" content="kakimind가 만든 앱과 게임 모음.">
+<style>
+  :root {
+    --bg: #faf7f1;
+    --bg-raised: #ffffff;
+    --text: #2a241c;
+    --text-dim: #6b6255;
+    --heading: #1c2340;
+    --accent: #b8790f;
+    --accent-dim: #c99a3e;
+    --rule: #e4dbc8;
+    --focus: #7a5a12;
+    --chip-bg: #f1ead9;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14172a;
+      --bg-raised: #1b1f38;
+      --text: #e9e4d8;
+      --text-dim: #a9a294;
+      --heading: #f3ecd9;
+      --accent: #d9ac52;
+      --accent-dim: #b98f3e;
+      --rule: #333a5c;
+      --focus: #e7c477;
+      --chip-bg: #232852;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2 { font-family: Georgia, "Iowan Old Style", "Nanum Myeongjo", "Noto Serif KR", ui-serif, serif; color: var(--heading); text-wrap: balance; font-weight: 600; }
+
+  .page { max-width: 52rem; margin: 0 auto; padding: 4.5rem 1.5rem 6rem; }
+
+  header.masthead { margin-bottom: 3rem; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 0.5em;
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600;
+  }
+
+  h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); margin: 0.5rem 0 0.4rem; line-height: 1.15; }
+  .subtitle { color: var(--text-dim); font-size: 0.98rem; max-width: 34rem; margin: 0; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+    gap: 1.1rem;
+    margin-top: 2.8rem;
+  }
+
+  .card {
+    background: var(--bg-raised);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 1.5rem 1.4rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .card:hover, .card:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--accent-dim);
+    outline: none;
+  }
+
+  .card .icon {
+    width: 2.9rem; height: 2.9rem;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    background: var(--chip-bg);
+  }
+
+  .card h2 { font-size: 1.12rem; margin: 0; font-family: inherit; }
+
+  .card p { margin: 0; color: var(--text-dim); font-size: 0.9rem; flex: 1; }
+
+  .card .tag {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: var(--chip-bg);
+    color: var(--accent);
+  }
+
+  .card .tag.soon { color: #8c6bff; }
+
+  .card .go {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer a { color: var(--text-dim); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 480px) {
+    .page { padding: 3rem 1.1rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="masthead">
+    <span class="eyebrow">👋 kakimind</span>
+    <h1>제가 만든 앱들</h1>
+    <p class="subtitle">혼자 만들고 있는 작은 앱과 게임들을 한곳에 모아뒀습니다. 각 카드를 누르면 해당 앱의 페이지로 이동합니다.</p>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="https://kakimind.github.io/pompomville/">
+      <div class="icon">🫧</div>
+      <span class="tag soon">출시 예정</span>
+      <h2>PomPom Ville</h2>
+      <p>동화 같은 마을을 여행하는 버블 팝 매치 퍼즐 게임. 100개 챕터, 1000개 스테이지.</p>
+      <span class="go">자세히 보기 →</span>
+    </a>
+
+    <a class="card" href="https://kakimind.github.io/box-find-web/">
+      <div class="icon">📦</div>
+      <span class="tag">앱</span>
+      <h2>어디뒀지?</h2>
+      <p>박스에 번호를 붙이고 사진과 이름으로 물건을 찾는 정리 앱.</p>
+      <span class="go">자세히 보기 →</span>
+    </a>
+
+    <a class="card" href="https://kakimind.github.io/bulssi-homepage/">
+      <div class="icon">🔥</div>
+      <span class="tag">앱</span>
+      <h2>불씨 (Bulssi)</h2>
+      <p>계정 없이 기기 안에서만 동작하는 습관 트래커.</p>
+      <span class="go">자세히 보기 →</span>
+    </a>
+
+    <a class="card" href="https://kakimind.github.io/shift-calendar/">
+      <div class="icon">🗓️</div>
+      <span class="tag">앱</span>
+      <h2>동행</h2>
+      <p>QR로 친구와 근무 패턴을 맞춰보는 교대근무 캘린더 앱.</p>
+      <span class="go">자세히 보기 →</span>
+    </a>
+
+    <a class="card" href="https://kakimind.github.io/dear-star-my-wish/">
+      <div class="icon">🌠</div>
+      <span class="tag">앱</span>
+      <h2>Dear Star, My Wish</h2>
+      <p>밤하늘을 배경으로 짧은 일기를 쓰고, 최근 기록은 작은 별을 얻는 저널링 앱.</p>
+      <span class="go">자세히 보기 →</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 kakimind</span>
+    <a href="mailto:kakimind@gmail.com">kakimind@gmail.com</a>
+  </footer>
+</div>
+
+</body>
+</html>
