@@ -77,14 +77,39 @@
 
   header.masthead { margin-bottom: 3rem; }
 
+  .profile { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+
+  .avatar {
+    width: 3.6rem; height: 3.6rem; flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #a855c9);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 22px -8px color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+
   .eyebrow {
     display: inline-flex; align-items: center; gap: 0.5em;
     font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--accent); font-weight: 600;
   }
 
-  h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); margin: 0.5rem 0 0.4rem; line-height: 1.15; }
-  .subtitle { color: var(--text-dim); font-size: 0.98rem; max-width: 34rem; margin: 0; }
+  h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); margin: 0.3rem 0 0; line-height: 1.15; }
+
+  .bio { color: var(--text-dim); font-size: 0.98rem; max-width: 36rem; margin: 0 0 1.1rem; }
+
+  .stats { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
+
+  .stat {
+    font-size: 0.78rem; font-weight: 600;
+    padding: 0.32rem 0.75rem;
+    border-radius: 999px;
+    background: var(--chip-bg);
+    color: var(--text-dim);
+    border: 1px solid var(--rule);
+  }
+
+  .subtitle { color: var(--text-dim); font-size: 0.92rem; max-width: 34rem; margin: 0; padding-top: 1.4rem; border-top: 1px solid var(--rule); }
 
   .grid {
     display: grid;
@@ -175,9 +200,25 @@
 
 <div class="page">
   <header class="masthead">
-    <span class="eyebrow">👋 kakimind</span>
-    <h1>제가 만든 앱들</h1>
-    <p class="subtitle">혼자 만들고 있는 작은 앱과 게임들을 한곳에 모아뒀습니다. 각 카드를 누르면 해당 앱의 페이지로 이동합니다.</p>
+    <div class="profile">
+      <div class="avatar">🧑‍💻</div>
+      <div>
+        <span class="eyebrow">👋 kakimind</span>
+        <h1>혼자 만드는 안드로이드 인디 개발자</h1>
+      </div>
+    </div>
+    <p class="bio">
+      본업 끝나고 틈틈이, 주말엔 조금 더 — 혼자서 기획부터 디자인, 개발까지 다 해보면서
+      안드로이드 앱과 게임을 만들고 있어요. 거창한 건 아니고, 생활 속 작은 불편을 해결하는
+      도구부터 그냥 재미로 만든 퍼즐 게임까지. 쓸만한 게 나오면 하나씩 꺼내서 세상에 내놓는 중입니다.
+    </p>
+    <div class="stats">
+      <span class="stat">📱 5개 프로젝트</span>
+      <span class="stat">🧑‍💻 1인 개발</span>
+      <span class="stat">💙 Flutter</span>
+      <span class="stat">🤖 Android</span>
+    </div>
+    <p class="subtitle">아래 카드를 누르면 해당 앱의 페이지로 이동합니다.</p>
   </header>
 
   <div class="grid">
@@ -224,7 +265,10 @@
 
   <footer>
     <span>© 2026 kakimind</span>
-    <a href="mailto:kakimind@gmail.com">kakimind@gmail.com</a>
+    <span style="display:flex; gap:1.2rem;">
+      <a href="https://github.com/kakimind">GitHub</a>
+      <a href="mailto:kakimind@gmail.com">kakimind@gmail.com</a>
+    </span>
   </footer>
 </div>
 
