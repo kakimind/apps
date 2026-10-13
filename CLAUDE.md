@@ -8,7 +8,7 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - **`https://kakimind.github.io/dear-star-my-wish/privacy.html`** — Dear Star, My Wish의 개인정보처리방침 (예전엔 `kakimind.github.io` 루트였는데 이리로 옮김).
 - 이렇게 된 이유: 네이버 서치어드바이저가 `kakimind.github.io/apps/` 같은 하위 경로 단위 등록을 지원하지 않고 **호스트 전체(`kakimind.github.io`) 단위로만** 사이트 등록을 받음. 원래 루트에 Dear Star 개인정보방침이 있었는데, 허브를 검색 등록하려면 호스트 루트에 허브가 있어야 해서 서로 자리를 바꿈.
 - **이 저장소(`apps`)의 `index.html`은 더 이상 허브가 아니라 순수 리다이렉트 스텁이다** (`https://kakimind.github.io/`로 즉시 이동). 허브 콘텐츠의 실제 소스는 **`kakimind.github.io` 저장소 하나뿐** — 이 저장소를 고쳐도 허브에는 아무 영향 없음.
-- Google Play Console의 Dear Star 개인정보처리방침 URL은 사용자가 직접 새 주소로 변경 완료했는지 미확인 상태로 남아있을 수 있음 — 확인 필요.
+- Google Play Console의 Dear Star 개인정보처리방침 URL은 `https://kakimind.github.io/dear-star-my-wish/privacy.html`로 갱신 완료 (2026-10-13).
 
 ## 구조 (이 저장소 `apps`)
 - `index.html` — 리다이렉트 전용 스텁 (`https://kakimind.github.io/`로 즉시 이동, 콘텐츠 없음).
@@ -50,7 +50,8 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - 2026-10-13: md 기반 기록 체계 시작 (CLAUDE.md: 맥락/결정사항, CHANGELOG.md: 변경 로그).
 - 2026-10-13: 허브+5개 앱 페이지를 매거진 에디토리얼 시스템으로 통일 재디자인, 6개 저장소 모두 커밋·푸시.
 - 2026-10-13: 배포 직후 발견된 구조적 버그(문서 뼈대 누락, 허브 그리드 레이아웃 깨짐, 잘못된 허브 URL) 전부 수정.
-- 2026-10-13: 네이버 SEO 등록 과정에서 호스트 단위 제약 발견 → 허브를 `kakimind.github.io` 루트로, Dear Star 개인정보방침을 `dear-star-my-wish/privacy.html`로 맞교환. **Play Console 개인정보방침 URL 갱신은 사용자가 직접 해야 함 (미확인).**
+- 2026-10-13: 네이버 SEO 등록 과정에서 호스트 단위 제약 발견 → 허브를 `kakimind.github.io` 루트로, Dear Star 개인정보방침을 `dear-star-my-wish/privacy.html`로 맞교환. Play Console 개인정보방침 URL도 사용자가 새 주소로 갱신 완료.
+- 2026-10-13: 네이버 호스트 소유확인 + 구글 서치콘솔(URL 접두어) 소유확인 완료, 사이트맵 제출.
 
 ## 메모
 - 앱 상태(출시/심사중 등) 태그는 각 페이지의 §킥커("앱 · 출시됨" 등)로 표시 — 상태 변경 시 커밋 메시지와 CHANGELOG.md에 함께 기록.
