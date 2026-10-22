@@ -19,7 +19,7 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 허브 + 5개 앱 페이지 전부가 동일한 "인쇄 매거진" 비주얼 시스템을 공유한다.
 - 타이포: Big Shoulders Display(마스트헤드/헤드라인), Source Serif 4(본문, 드롭캡), Space Mono(폴리오·팩트박스·스펙)
 - 공통 요소: 세로 러닝헤드, §번호 킥커, 드롭캡 본문, 팩트박스(Platform/Status/Genre), FIG. 캡션이 붙은 스크린샷 플레이트, 콜로폰 푸터
-- 각 앱 고유 스팟 컬러: PomPom Ville `#a855c9` · 어디뒀지? `#c1694f` · 불씨 `#ff7a3d` · 동행 `#2e7d9a` · Dear Star `#d9ac52`
+- 각 앱 고유 스팟 컬러: PomPom Ville `#a855c9` · 어디뒀지? `#c1694f` · 불씨 `#ff7a3d` · 동행 `#2e7d9a` · Dear Star `#d9ac52` · Orbit Hop `#e8502f`
 - 앱 페이지들의 스크린샷은 각 앱의 로컬 프로젝트 폴더(Play 스토어용 에셋) 또는 Play 스토어 리스팅에서 직접 가져온 실제 이미지 — placeholder 금지.
 - 다른 앱 페이지를 수정/추가할 때는 이 톤(§번호, 드롭캡, 팩트박스, 러닝헤드)을 그대로 따를 것.
 - **주의**: Artifact 미리보기용으로 쓴 HTML 조각(fragment, `<!DOCTYPE>`/`<html>`/`<head>`/`<body>` 없음)을 실제 사이트 파일에 그대로 복사하면 깨진다 — 실제 배포 파일은 항상 완전한 문서 구조(doctype, head, charset, viewport, body, 닫는 태그)를 갖춰야 함. 2026-10-13에 이 실수로 6개 사이트가 전부 깨졌다가 수정됨.
@@ -30,10 +30,14 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 3. **불씨 (Bulssi)** (§03) — 계정 없는 습관 트래커. 저장소: `bulssi-homepage`
 4. **동행** (§04) — 교대근무 캘린더 앱. 저장소: `shift-calendar` (Pages 루트는 `docs/`)
 5. **Dear Star, My Wish** (§05) — 저널링 앱. 저장소: `dear-star-my-wish`. 개인정보방침은 `privacy.html` (자기 경로 하위, 루트 아님).
-
-6. **Orbit Hop** (§06) — 원터치 궤도 아케이드. Android 출시 준비 중. 저장소: `orbit-hop-site`. 100단계 티어·위성 100종·20개 언어·오프라인 기본 플레이.
+6. **Orbit Hop** (§06) — 원터치 궤도 아케이드. Android 출시 준비 중. 저장소: `orbit-hop-site`. 100단계 티어·위성 100종·20개 언어·오프라인 기본 플레이. 배포 주소도 `/orbit-hop-site/`로, 다른 앱과 달리 `-site` 접미사가 붙음에 주의.
 
 각 앱 페이지는 자기 저장소에서 `kakimind.github.io/<app>/`으로 배포된다 (이건 전처럼 유지됨, 안 바뀜).
+
+### ⚠️ Orbit Hop만 빌드 파이프라인이 다름 (중요)
+- `orbit-hop-site/index.html`은 **직접 수정하면 안 되는 산출물**이다. 진짜 소스는 비공개 앱 저장소 `orbit-hop`(로컬 `C:\src\Orbit_Hop`)의 `Design/orbit_hop_1/code.html`이고, `node tools/build-site.mjs`가 이걸 `.site-worktree`로 export한다.
+- 따라서 이 페이지를 고칠 땐 **두 저장소를 같이 커밋해야 한다**. 소스를 안 고치면 다음 빌드 때 원복됨.
+- 빌드 스크립트는 `privacy.html`은 건드리지 않고 보존한다 (`privacy.html`은 매거진 톤이 아니라 앱별 독자 디자인 — 다른 앱들도 동일).
 
 ## 로컬 프로젝트 소스 위치 (스크린샷/에셋 재사용 시 참고)
 - PomPom Ville: `C:\src\pompomville` (assets/backgrounds에 챕터별 배경아트, ad_recording에 Play 스토어용 스크린샷)
@@ -41,6 +45,7 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - 불씨: `C:\src\RoutineBox` (store-assets/screenshots/ko-raw에 한국어 스크린샷)
 - 동행: `C:\src\Shift Calendar` (store_screenshots/한국어)
 - Dear Star: `C:\src\Dear Star_ My Wish\flutter_application_1` (store_assets/screenshots) — 주의: 비슷한 이름의 `Dear Star, My Wish` 폴더(쉼표)는 빈 스텁이고, 진짜는 언더스코어 버전.
+- Orbit Hop: `C:\src\Orbit_Hop` — **쓸만한 스크린샷이 없음**. `store/`엔 아이콘(`play-icon-512.png`) 하나뿐이고, `.report_assets/device/`의 기기 캡쳐 73장은 전부 QA용이라 사용 불가(하단에 "Test Ad" 테스트 광고 배너가 박혀 있고, 다수가 "광고를 불러오지 못했습니다" 류 에러 다이얼로그 상태, 로케일도 영어·이탈리아어 혼재). 쓸 수 있는 건 콘셉트 아트 `Design/modern_minimalist_.../screen.png`(→ 배포 시 `assets/orbit-art.png`) 뿐.
 
 ## SEO / 검색 등록 상태 (2026-10-13)
 - `kakimind.github.io` 호스트 전체가 네이버 서치어드바이저에 등록되고 소유확인 완료 (`naver-site-verification` 메타태그는 허브 index.html에 있음).
@@ -54,6 +59,13 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - 2026-10-13: 배포 직후 발견된 구조적 버그(문서 뼈대 누락, 허브 그리드 레이아웃 깨짐, 잘못된 허브 URL) 전부 수정.
 - 2026-10-13: 네이버 SEO 등록 과정에서 호스트 단위 제약 발견 → 허브를 `kakimind.github.io` 루트로, Dear Star 개인정보방침을 `dear-star-my-wish/privacy.html`로 맞교환. Play Console 개인정보방침 URL도 사용자가 새 주소로 갱신 완료.
 - 2026-10-13: 네이버 호스트 소유확인 + 구글 서치콘솔(URL 접두어) 소유확인 완료, 양쪽 다 사이트맵 제출까지 완료.
+- 2026-10-21: Orbit Hop을 허브에 §06으로 추가 (허브 저장소 커밋 `260d848`, 사이트맵에도 반영).
+- 2026-10-22: Orbit Hop 랜딩 페이지를 매거진 에디토리얼 시스템으로 재작성. 원래는 자체 디자인(로컬 woff2 폰트 + `site.css` + 카드/히어로 레이아웃)이라 나머지 5개와 완전히 달랐음. 소스(`orbit-hop` 저장소 `b4f7538`)와 배포본(`orbit-hop-site` 저장소 `6177b3c`) 양쪽 커밋·푸시 완료.
+
+## 미해결 / TODO
+- **Orbit Hop 페이지에 스크린샷이 1장뿐이다** (콘셉트 아트). 다른 앱 페이지는 메인 플레이트 1장 + Gallery 4장 = 5장(PomPom Ville은 15장) 구조인데, Orbit Hop은 쓸 수 있는 실제 이미지가 없어 Gallery 섹션 자체를 못 만들었다. placeholder 금지 원칙 때문에 비워둔 것. 해결하려면 (a) 깨끗한 한국어 스토어 스크린샷 4장(로비·플레이 중·위성 컬렉션·결과 화면) 확보, 또는 (b) `C:\src\Orbit_Hop\dist\` 웹 빌드를 로컬 서버로 띄워 모바일 뷰포트로 직접 캡쳐.
+- Orbit Hop 페이지가 자체 완결형(인라인 `<style>` + Google Fonts)이 되면서 `site.css`와 로컬 woff2 5종이 `index.html`에서 더 이상 참조되지 않음. `privacy.html`도 원래 독립이라 사실상 미사용 — 정리 여부 미결정. 정리하려면 `tools/build-site.mjs`의 복사 목록도 같이 수정해야 함.
+- Orbit Hop 출시 후 할 일: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 출시 준비 중" 배지를 Dear Star처럼 실제 `.playbadge` 다운로드 링크로 교체, 허브 §06 킥커도 "게임 · 출시됨"으로 변경.
 
 ## 메모
 - 앱 상태(출시/심사중 등) 태그는 각 페이지의 §킥커("앱 · 출시됨" 등)로 표시 — 상태 변경 시 커밋 메시지와 CHANGELOG.md에 함께 기록.
