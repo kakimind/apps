@@ -2,6 +2,14 @@
 
 이 저장소(kakimind-apps 허브 페이지)의 변경 기록. 최신 항목이 위에 오도록 추가.
 
+## 2026-10-22 (2)
+- Orbit Hop 랜딩 페이지에 **실제 플레이 스크린샷 6장**으로 Gallery 섹션(`From the Cockpit — 실제 플레이 화면`) 추가. 이로써 전날 남겨뒀던 "이미지가 콘셉트 아트 1장뿐" 문제 해소.
+- 출처는 `C:\src\Orbit_Hop\store\screenshots\02-한국어-ko-KR\` (20개 언어 × 6장이 생성돼 있었음). 로비·비행 중·비행 종료·격납고·일일 미션·설정 순서로 FIG. 02~07 캡션 부여. 웹용으로 1080×1920 → 720×1280 축소·최적화해 6장 합계 879KB.
+- 웹용 사본은 소스 저장소의 `Design/orbit_hop_1/shots/`에 두고, `tools/build-site.mjs`가 `assets/shots/`로 복사하도록 빌드 스크립트 수정 (스토어 원본은 그대로 보존).
+- 기존 CLAUDE.md 메모("Orbit Hop은 쓸만한 스크린샷이 없음, `.report_assets/device/`는 Test Ad 배너 때문에 사용 불가")는 **더 이상 유효하지 않음**. `store/screenshots/`의 새 캡쳐는 테스트 광고 배너·에러 다이얼로그가 없고 로케일도 한국어로 통일돼 있음.
+- 두 저장소 커밋·푸시 (`orbit-hop` `10d84c3` / `orbit-hop-site` `a3c9760`). 배포 반영 확인 완료.
+- 배포 중 발견: `.site-worktree` 로컬 클론이 원격 `6177b3c`와 내용은 같고 해시만 다른 상태여서 푸시가 거부됨. `index.html`이 산출물인 점을 이용해 원격으로 초기화 후 재빌드하는 방식으로 해결(삭제 0줄, 추가 39줄). 같은 상황이 재발하면 수동 병합하지 말고 재빌드할 것.
+
 ## 2026-10-22
 - Orbit Hop 랜딩 페이지(`kakimind.github.io/orbit-hop-site/`)를 나머지 페이지들과 동일한 "KAKIMIND Issue No. 01" 매거진 에디토리얼 시스템으로 재작성. 기존엔 자체 디자인(로컬 woff2 폰트 + 외부 `site.css` + 히어로/카드 레이아웃)이라 허브 및 다른 5개 앱 페이지와 톤이 전혀 달랐음.
 - 적용한 공통 요소: 세로 러닝헤드, `§06 — Orbital Arcade — Coming Soon` 킥커, Big Shoulders 마스트헤드, 드롭캡 본문, Platform/Status/Genre 팩트박스, FIG. 캡션 플레이트, 콜로폰 푸터. 타이포는 Big Shoulders Display / Source Serif 4 / Space Mono, 스팟 컬러는 허브 목차와 동일한 `#e8502f`.
