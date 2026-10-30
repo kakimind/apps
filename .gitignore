@@ -1,2 +1,8 @@
 # JetBrains IDE workspace settings — local to one machine, not part of the site.
 .idea/
+
+# Generated artwork and the OFL fonts it is drawn with. The two PNGs that
+# actually get uploaded are committed at play-developer-profile/ root;
+# everything here is reproducible — see that folder's README.
+play-developer-profile/out/
+play-developer-profile/fonts/

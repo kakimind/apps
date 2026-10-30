@@ -18,7 +18,16 @@ SPOTS = [("01", (168,  85, 201)),   # PomPom Ville
          ("03", (255, 122,  61)),   # 불씨
          ("04", ( 46, 125, 154)),   # 동행
          ("05", (217, 172,  82)),   # Dear Star, My Wish
-         ("06", (232,  80,  47))]   # Orbit Hop
+         ("06", (232,  80,  47)),   # Orbit Hop
+         ("07", (155, 107, 255)),   # Top of Gravity
+         ("08", ( 47, 124, 246))]   # Bubble Rumble
+
+# The header spells the count out, and it went stale once already: the
+# artwork still read SIX after two more titles had shipped. Spelling it
+# from the list means adding a title above is the only edit needed.
+COUNT_WORD = {1: "ONE", 2: "TWO", 3: "THREE", 4: "FOUR", 5: "FIVE",
+              6: "SIX", 7: "SEVEN", 8: "EIGHT", 9: "NINE", 10: "TEN",
+              11: "ELEVEN", 12: "TWELVE"}.get(len(SPOTS), str(len(SPOTS)))
 
 
 def shoulders(size, wght=900):
@@ -177,7 +186,7 @@ def build_header(path, W=4096, H=2304):
                  bx, y + bar_h + p(26))
         bx += bar_w + gap
 
-    paste_center(img, render_tracked("SIX TITLES INSIDE \u2014 GOOGLE PLAY",
+    paste_center(img, render_tracked(f"{COUNT_WORD} TITLES INSIDE \u2014 GOOGLE PLAY",
                                      mono(p(38)), INK_SOFT, p(38) * 0.28),
                  cx, y + bar_h + p(118))
 
