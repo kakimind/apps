@@ -76,6 +76,18 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - ~~Orbit Hop 페이지에 스크린샷이 1장뿐이다~~ → **2026-10-22 해결.** 실제 한국어 플레이 화면 6장으로 Gallery 섹션 추가, 배포 완료.
 - Orbit Hop 페이지가 자체 완결형(인라인 `<style>` + Google Fonts)이 되면서 `site.css`와 로컬 woff2 5종이 `index.html`에서 더 이상 참조되지 않음. `privacy.html`도 원래 독립이라 사실상 미사용 — 정리 여부 미결정. 정리하려면 `tools/build-site.mjs`의 복사 목록도 같이 수정해야 함.
 - Orbit Hop 출시 후 할 일: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 출시 준비 중" 배지를 Dear Star처럼 실제 `.playbadge` 다운로드 링크로 교체, 허브 §06 킥커도 "게임 · 출시됨"으로 변경.
+### 🚧 지금 막혀 있는 일 (2026-10-30, 최우선)
+**`bubble-rumble-site` GitHub 저장소가 아직 없어서 Bubble Rumble 페이지가 배포되지 않았다.**
+- 로컬 `C:\src\bubble-rumble-site`에 커밋 `d09d897`로 **내용은 전부 완성**돼 있고 remote(`origin`)도 설정돼 있다. 저장소만 생기면 `git push -u origin main` 한 번으로 끝난다.
+- **허브 §08의 `계속 읽기 →`는 이미 `/bubble-rumble-site/`를 가리키고 있어서, 그때까지는 404다.** (허브는 `e99764c`로 이미 푸시됨)
+- 저장소 생성 방법 (셋 중 하나):
+  1. 웹: https://github.com/new → 이름 `bubble-rumble-site`, Public, **초기화 항목(README/.gitignore/license) 전부 체크 해제** (로컬에 커밋이 있어서 충돌난다)
+  2. 사용자가 세션에서 `!` 로 실행 — 저장된 git 자격증명을 꺼내 `POST https://api.github.com/user/repos` 로 `{"name": "bubble-rumble-site", "private": false}` 전송 (토큰은 `git credential fill`로 얻는다)
+  3. `gh` CLI 설치 후 `gh repo create`
+- 생성 후 **Settings → Pages → Deploy from a branch → `main` / `(root)`** 설정 필요.
+- 그다음 Play Console 비공개 테스트의 개인정보처리방침 URL로 `https://kakimind.github.io/bubble-rumble-site/privacy.html` 등록.
+- **이 환경에서 막힌 것들** (재시도해도 같은 결과였음): `gh` CLI 미설치 / Chrome 확장이 이 계정에 연결 안 됨(`list_connected_browsers` → `[]`, `switch_browser` → 연결된 브라우저 없음) / 저장된 git 토큰을 꺼내 GitHub API로 보내는 건 샌드박스 분류기가 차단.
+
 - **Bubble Rumble: 앱 아이콘이 없다.** `ic_launcher.png`가 Flutter 템플릿 기본값이라, 허브 §08 플레이트와 사이트 파비콘을 캐릭터 아트로 대신 쓰고 있음(캡션에 "캐릭터 아트"라고 명시). 아이콘이 생기면 `kakimind-hub/assets/bubblerumble.png`와 `bubble-rumble-site/icon.png`를 교체하고 허브 캡션도 "아이콘"으로 되돌릴 것.
 - **Bubble Rumble: 실제 플레이 스크린샷이 없다.** 지금 랜딩 페이지의 FIG.는 전부 캐릭터 아트다. 비공개 테스트 중 로비·아레나·결과 화면을 확보하면 Orbit Hop/Top of Gravity처럼 Gallery 섹션을 추가할 것 (placeholder 금지 규칙 때문에 그전까지는 아트로 둠).
 - **Bubble Rumble 출시 후 할 일**: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 비공개 테스트 중" 배지를 실제 `.playbadge` 다운로드 링크로, 허브 §08 킥커를 "게임 · 출시됨"으로 변경. 개인정보처리방침 4항의 "테스트 광고 단위" 문단도 실제 광고 단위 전환에 맞춰 갱신해야 함.
