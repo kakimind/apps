@@ -16,10 +16,10 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - **허브를 수정할 땐 이 저장소가 아니라 `kakimind.github.io` 저장소(스크래치 클론 또는 재클론)에서 작업할 것.**
 
 ## 디자인 시스템 (2026-10-13 전면 개편)
-허브 + 5개 앱 페이지 전부가 동일한 "인쇄 매거진" 비주얼 시스템을 공유한다.
+허브 + 8개 앱 페이지 전부가 동일한 "인쇄 매거진" 비주얼 시스템을 공유한다.
 - 타이포: Big Shoulders Display(마스트헤드/헤드라인), Source Serif 4(본문, 드롭캡), Space Mono(폴리오·팩트박스·스펙)
 - 공통 요소: 세로 러닝헤드, §번호 킥커, 드롭캡 본문, 팩트박스(Platform/Status/Genre), FIG. 캡션이 붙은 스크린샷 플레이트, 콜로폰 푸터
-- 각 앱 고유 스팟 컬러: PomPom Ville `#a855c9` · 어디뒀지? `#c1694f` · 불씨 `#ff7a3d` · 동행 `#2e7d9a` · Dear Star `#d9ac52` · Orbit Hop `#e8502f`
+- 각 앱 고유 스팟 컬러: PomPom Ville `#a855c9` · 어디뒀지? `#c1694f` · 불씨 `#ff7a3d` · 동행 `#2e7d9a` · Dear Star `#d9ac52` · Orbit Hop `#e8502f` · Top of Gravity `#9b6bff` · Bubble Rumble `#2f7cf6`
 - 앱 페이지들의 스크린샷은 각 앱의 로컬 프로젝트 폴더(Play 스토어용 에셋) 또는 Play 스토어 리스팅에서 직접 가져온 실제 이미지 — placeholder 금지.
 - 다른 앱 페이지를 수정/추가할 때는 이 톤(§번호, 드롭캡, 팩트박스, 러닝헤드)을 그대로 따를 것.
 - **주의**: Artifact 미리보기용으로 쓴 HTML 조각(fragment, `<!DOCTYPE>`/`<html>`/`<head>`/`<body>` 없음)을 실제 사이트 파일에 그대로 복사하면 깨진다 — 실제 배포 파일은 항상 완전한 문서 구조(doctype, head, charset, viewport, body, 닫는 태그)를 갖춰야 함. 2026-10-13에 이 실수로 6개 사이트가 전부 깨졌다가 수정됨.
@@ -31,6 +31,8 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 4. **동행** (§04) — 교대근무 캘린더 앱. 저장소: `shift-calendar` (Pages 루트는 `docs/`)
 5. **Dear Star, My Wish** (§05) — 저널링 앱. 저장소: `dear-star-my-wish`. 개인정보방침은 `privacy.html` (자기 경로 하위, 루트 아님).
 6. **Orbit Hop** (§06) — 원터치 궤도 아케이드. Android 출시 준비 중. 저장소: `orbit-hop-site`. 100단계 티어·위성 100종·20개 언어·오프라인 기본 플레이. 배포 주소도 `/orbit-hop-site/`로, 다른 앱과 달리 `-site` 접미사가 붙음에 주의.
+7. **Top of Gravity** (§07) — 중력 전환 매치-3 퍼즐. Google Play 출시 완료 (`com.kakimind.topgravity`). 저장소: `tower-of-gravity`, **Pages 루트는 `docs/`**. 한국어 스토어 이름은 '중력의 탑'. 1000 스테이지·100개 층·특수 재료 4종·안내자 5명·22개 언어. 배포 주소는 `/tower-of-gravity/`로 저장소명을 그대로 씀.
+8. **Bubble Rumble** (§08) — 물풍선 격자 파티 아케이드 (Flutter). Google Play **비공개 테스트 준비 중** (`com.kakimind.bubble_rumble`). 사이트 저장소: `bubble-rumble-site`, 앱 저장소는 비공개(로컬 `C:\src\Bubble Rumble`). 버디 8종·스킨 72종·맵 4종·모드 2종(배틀로얄 4인 / 클래식 2vs2), 온라인은 WebRTC P2P.
 
 각 앱 페이지는 자기 저장소에서 `kakimind.github.io/<app>/`으로 배포된다 (이건 전처럼 유지됨, 안 바뀜).
 
@@ -45,6 +47,8 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - 불씨: `C:\src\RoutineBox` (store-assets/screenshots/ko-raw에 한국어 스크린샷)
 - 동행: `C:\src\Shift Calendar` (store_screenshots/한국어)
 - Dear Star: `C:\src\Dear Star_ My Wish\flutter_application_1` (store_assets/screenshots) — 주의: 비슷한 이름의 `Dear Star, My Wish` 폴더(쉼표)는 빈 스텁이고, 진짜는 언더스코어 버전.
+- Top of Gravity: `C:\src\Top of gravity` (Capacitor+Phaser). `store/스크린샷/<언어>/`에 **22개 언어 × 5장**(`01-로비` `02-상점` `03-이야기` `04-플레이` `05-스테이지클리어`, 1080×1920), `store/그래픽이미지/`에 언어별 피처 그래픽. 사이트용 사본은 `docs/assets/shots/*.webp`(720×1280)로 축소해 둠 — 스토어 원본은 건드리지 말 것.
+- Bubble Rumble: `C:\src\Bubble Rumble` (Flutter). **스토어용 스크린샷과 앱 아이콘이 아직 없음** (`ic_launcher.png`가 Flutter 템플릿 기본값). 쓸 수 있는 이미지는 `assets/images/skins/<캐릭터>/`의 캐릭터 아트 72장(512×512 PNG)뿐이며, 사이트 사본은 `bubble-rumble-site/assets/`에 webp로 있음.
 - Orbit Hop: `C:\src\Orbit_Hop` — **스크린샷 있음** (2026-10-22 생성). `store/screenshots/<언어>/`에 **20개 언어 × 6장**(`01-플레이` `02-로비` `03-격납고` `04-결과` `05-설정` `06-미션`, 각 1080×1920). 한국어는 `02-한국어-ko-KR`. 테스트 광고 배너·에러 다이얼로그 없이 깨끗함. `store/feature-graphic/`에 언어별 피처 그래픽도 있음.
   - 랜딩 페이지용 웹 사본(720×1280)은 `Design/orbit_hop_1/shots/`에 영문명(`lobby/play/result/hangar/missions/settings.png`)으로 두고 `build-site.mjs`가 `assets/shots/`로 복사함. 스토어 원본은 건드리지 말 것.
   - **주의**: `.report_assets/device/`의 기기 캡쳐 73장은 여전히 QA용이라 사용 불가 ("Test Ad" 배너, 에러 다이얼로그, 영어·이탈리아어 혼재). 혼동하지 말 것.
@@ -65,11 +69,16 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - 2026-10-21: Orbit Hop을 허브에 §06으로 추가 (허브 저장소 커밋 `260d848`, 사이트맵에도 반영).
 - 2026-10-22: Orbit Hop 랜딩 페이지에 실제 플레이 스크린샷 6장(FIG. 02~07) Gallery 추가. 소스(`orbit-hop` `10d84c3`)와 배포본(`orbit-hop-site` `a3c9760`) 양쪽 커밋·푸시. Orbit Hop은 현재 **비공개 테스트 중이며 출시 예정**.
 - 2026-10-22: Orbit Hop 랜딩 페이지를 매거진 에디토리얼 시스템으로 재작성. 원래는 자체 디자인(로컬 woff2 폰트 + `site.css` + 카드/히어로 레이아웃)이라 나머지 5개와 완전히 달랐음. 소스(`orbit-hop` 저장소 `b4f7538`)와 배포본(`orbit-hop-site` 저장소 `6177b3c`) 양쪽 커밋·푸시 완료.
+- 2026-10-30: **Top of Gravity 출시 반영 + Bubble Rumble 신규 추가.** TOG는 허브 §07에 이미 들어가 있었지만(`14a3d9e`) 소개 페이지 링크가 없고 사이트맵에도 빠져 있었음 — 둘 다 보강. TOG 랜딩 페이지(`tower-of-gravity` `f65ddac`)를 자체 판타지 디자인에서 매거진 시스템으로 재작성하고 "출시 준비 중"을 실제 Play 배지로 교체, 한국어 스크린샷 5장을 FIG. 02~06으로 추가. privacy.html은 디자인 유지한 채 출시 전 기준으로 쓰인 문장만 갱신.
+- 2026-10-30: **Bubble Rumble 사이트 신설** (`bubble-rumble-site`, 로컬 `C:\src\bubble-rumble-site`, 첫 커밋 `d09d897`). 비공개 테스트에 필요한 랜딩 + 개인정보처리방침. 허브에 §08로 추가 (`kakimind.github.io` `e99764c`).
 
 ## 미해결 / TODO
 - ~~Orbit Hop 페이지에 스크린샷이 1장뿐이다~~ → **2026-10-22 해결.** 실제 한국어 플레이 화면 6장으로 Gallery 섹션 추가, 배포 완료.
 - Orbit Hop 페이지가 자체 완결형(인라인 `<style>` + Google Fonts)이 되면서 `site.css`와 로컬 woff2 5종이 `index.html`에서 더 이상 참조되지 않음. `privacy.html`도 원래 독립이라 사실상 미사용 — 정리 여부 미결정. 정리하려면 `tools/build-site.mjs`의 복사 목록도 같이 수정해야 함.
 - Orbit Hop 출시 후 할 일: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 출시 준비 중" 배지를 Dear Star처럼 실제 `.playbadge` 다운로드 링크로 교체, 허브 §06 킥커도 "게임 · 출시됨"으로 변경.
+- **Bubble Rumble: 앱 아이콘이 없다.** `ic_launcher.png`가 Flutter 템플릿 기본값이라, 허브 §08 플레이트와 사이트 파비콘을 캐릭터 아트로 대신 쓰고 있음(캡션에 "캐릭터 아트"라고 명시). 아이콘이 생기면 `kakimind-hub/assets/bubblerumble.png`와 `bubble-rumble-site/icon.png`를 교체하고 허브 캡션도 "아이콘"으로 되돌릴 것.
+- **Bubble Rumble: 실제 플레이 스크린샷이 없다.** 지금 랜딩 페이지의 FIG.는 전부 캐릭터 아트다. 비공개 테스트 중 로비·아레나·결과 화면을 확보하면 Orbit Hop/Top of Gravity처럼 Gallery 섹션을 추가할 것 (placeholder 금지 규칙 때문에 그전까지는 아트로 둠).
+- **Bubble Rumble 출시 후 할 일**: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 비공개 테스트 중" 배지를 실제 `.playbadge` 다운로드 링크로, 허브 §08 킥커를 "게임 · 출시됨"으로 변경. 개인정보처리방침 4항의 "테스트 광고 단위" 문단도 실제 광고 단위 전환에 맞춰 갱신해야 함.
 
 ## 메모
 - 앱 상태(출시/심사중 등) 태그는 각 페이지의 §킥커("앱 · 출시됨" 등)로 표시 — 상태 변경 시 커밋 메시지와 CHANGELOG.md에 함께 기록.
