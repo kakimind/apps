@@ -3,6 +3,10 @@
 이 저장소(kakimind-apps 허브 페이지)의 변경 기록. 최신 항목이 위에 오도록 추가.
 
 ## 2026-10-30
+- **`bubble-rumble-site` 배포 완료 — 전날 남아 있던 유일한 블로커 해소.** 원격 저장소가 없어 푸시하지 못했던 건을, Chrome 자동화로 github.com/new에서 Public 저장소(초기화 항목 전부 해제)를 만들어 해결. 로컬 `d09d897`을 `git push -u origin main`으로 올리고, Settings → Pages → Deploy from a branch → `main` / `(root)` 저장.
+- 배포 확인: `https://kakimind.github.io/bubble-rumble-site/`(랜딩)와 `/privacy.html`(개인정보처리방침) 둘 다 정상 렌더링. 허브 §08의 `계속 읽기 →`가 가리키던 404도 같이 해소됐다.
+- 이전 세션에서 막혔던 원인은 `gh` CLI 미설치/토큰 차단이 아니라 **Chrome 확장이 계정에 연결돼 있지 않았던 것**(`list_connected_browsers` → `[]`). 연결된 상태에서는 GitHub 웹 작업을 브라우저로 그대로 처리할 수 있다.
+- 남은 일: Play Console 비공개 테스트의 개인정보처리방침 URL에 `https://kakimind.github.io/bubble-rumble-site/privacy.html` 등록(사용자 작업).
 - **Top of Gravity(중력의 탑) 출시 반영.** 허브 §07 항목 자체는 `14a3d9e`로 이미 들어가 있었으나, 여덟 항목 중 **유일하게 소개 페이지 링크가 없고**(Play 스토어로 바로 가는 링크뿐) 사이트맵에도 빠져 있었다. `계속 읽기 →`를 `kakimind.github.io/tower-of-gravity/`로 맞추고 사이트맵에 추가.
 - TOG 랜딩 페이지(`tower-of-gravity` 저장소, **Pages 루트는 `docs/`**)를 매거진 에디토리얼 시스템으로 재작성 (`f65ddac`). 원래는 Cinzel Decorative + 보라/금색 자체 판타지 디자인이라 나머지 일곱과 톤이 달랐음. 스팟 컬러는 허브 목차와 같은 `#9b6bff`.
 - "◷ 출시 준비 중" 표시를 실제 Google Play 배지로 교체. 한국어 플레이 스크린샷 5장(`store/스크린샷/한국어/`)을 720×1280 webp로 줄여 FIG. 02~06 Gallery로, 피처 그래픽을 FIG. 01 플레이트로 사용 (5장 합계 218KB). 스토어 원본은 그대로 보존.
