@@ -3,6 +3,11 @@
 이 저장소(kakimind-apps 허브 페이지)의 변경 기록. 최신 항목이 위에 오도록 추가.
 
 ## 2026-10-30
+- **Bubble Rumble 랜딩 페이지에 실제 플레이 스크린샷 Gallery 추가** (`bubble-rumble-site` `5741bcc`). 아침까지 FIG.가 전부 캐릭터 아트였던 건, 돌아가는 게임을 찍은 이미지가 아예 없었기 때문이다. Pixel 6 에뮬레이터에 release APK를 올리고 한국어로 직접 한 판 플레이하며 9장을 캡처해 해소했다.
+- 고른 6장: 로비 / 방 만들기(모드·맵 선택) / 아레나 4인 교전 / 갇힘·버프가 떠 있는 플레이 순간 / 버블 상점 / 클로이 스킨 옷장. FIG. 02~07로 넣고 버디 로스터는 FIG. 08~15로 밀었다.
+- **이 게임은 가로 모드(2400×1080)라** 세로 스크린샷을 쓰는 다른 앱 페이지와 그리드가 달라야 했다 — Gallery를 3열이 아닌 2열로 두고, 웹 사본은 1280×576 webp(6장 합계 248KB)로 만들었다.
+- 스토어 원본 9장은 `C:\src\Bubble Rumble\store\screenshots\한국어\`에 보존. Play 스토어 리스팅에 필요한 스크린샷이 그동안 없었는데 이걸로 채울 수 있다.
+- 캡처 중 확인한 것: 봇은 빈 자리를 탭해서 넣는 게 아니라 방을 만들고 `준비 완료`를 누르면 알아서 들어찬다 (`_EmptySeat`의 "host can tap it to drop an AI bot" 주석은 더 이상 맞지 않는다). 리워드 광고는 버튼으로만 뜨므로 Orbit Hop 때처럼 "Test Ad" 배너가 캡처에 끼는 문제는 없었다.
 - **`bubble-rumble-site` 배포 완료 — 전날 남아 있던 유일한 블로커 해소.** 원격 저장소가 없어 푸시하지 못했던 건을, Chrome 자동화로 github.com/new에서 Public 저장소(초기화 항목 전부 해제)를 만들어 해결. 로컬 `d09d897`을 `git push -u origin main`으로 올리고, Settings → Pages → Deploy from a branch → `main` / `(root)` 저장.
 - 배포 확인: `https://kakimind.github.io/bubble-rumble-site/`(랜딩)와 `/privacy.html`(개인정보처리방침) 둘 다 정상 렌더링. 허브 §08의 `계속 읽기 →`가 가리키던 404도 같이 해소됐다.
 - 이전 세션에서 막혔던 원인은 `gh` CLI 미설치/토큰 차단이 아니라 **Chrome 확장이 계정에 연결돼 있지 않았던 것**(`list_connected_browsers` → `[]`). 연결된 상태에서는 GitHub 웹 작업을 브라우저로 그대로 처리할 수 있다.

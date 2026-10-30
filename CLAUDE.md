@@ -72,6 +72,7 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - 2026-10-30: **Top of Gravity 출시 반영 + Bubble Rumble 신규 추가.** TOG는 허브 §07에 이미 들어가 있었지만(`14a3d9e`) 소개 페이지 링크가 없고 사이트맵에도 빠져 있었음 — 둘 다 보강. TOG 랜딩 페이지(`tower-of-gravity` `f65ddac`)를 자체 판타지 디자인에서 매거진 시스템으로 재작성하고 "출시 준비 중"을 실제 Play 배지로 교체, 한국어 스크린샷 5장을 FIG. 02~06으로 추가. privacy.html은 디자인 유지한 채 출시 전 기준으로 쓰인 문장만 갱신.
 - 2026-10-30: **Bubble Rumble 사이트 신설** (`bubble-rumble-site`, 로컬 `C:\src\bubble-rumble-site`, 첫 커밋 `d09d897`). 비공개 테스트에 필요한 랜딩 + 개인정보처리방침. 허브에 §08로 추가 (`kakimind.github.io` `e99764c`).
 - 2026-10-30: **`bubble-rumble-site` 원격 저장소 생성 + 배포 완료.** Chrome 자동화(claude-in-chrome)로 github.com/new에서 Public 저장소를 만들고 `d09d897` 푸시, Pages를 `main` / `(root)`로 설정. 허브 §08 링크 404 해소.
+- 2026-10-30: **Bubble Rumble 실제 플레이 스크린샷 확보 + Gallery 추가.** 에뮬레이터에서 직접 플레이해 9장 캡처, 6장을 랜딩 페이지 FIG. 02~07로 (`bubble-rumble-site` `5741bcc`). 원본은 앱 저장소 `store/screenshots/한국어/`에 보존.
 
 ## 미해결 / TODO
 - ~~Orbit Hop 페이지에 스크린샷이 1장뿐이다~~ → **2026-10-22 해결.** 실제 한국어 플레이 화면 6장으로 Gallery 섹션 추가, 배포 완료.
@@ -82,7 +83,11 @@ kakimind의 앱/게임 모음을 소개하는 허브 페이지 **원본 소스**
 - **남은 일: Play Console 비공개 테스트의 개인정보처리방침 URL로 `https://kakimind.github.io/bubble-rumble-site/privacy.html` 등록** (사용자 작업).
 
 - **Bubble Rumble: 앱 아이콘이 없다.** `ic_launcher.png`가 Flutter 템플릿 기본값이라, 허브 §08 플레이트와 사이트 파비콘을 캐릭터 아트로 대신 쓰고 있음(캡션에 "캐릭터 아트"라고 명시). 아이콘이 생기면 `kakimind-hub/assets/bubblerumble.png`와 `bubble-rumble-site/icon.png`를 교체하고 허브 캡션도 "아이콘"으로 되돌릴 것.
-- **Bubble Rumble: 실제 플레이 스크린샷이 없다.** 지금 랜딩 페이지의 FIG.는 전부 캐릭터 아트다. 비공개 테스트 중 로비·아레나·결과 화면을 확보하면 Orbit Hop/Top of Gravity처럼 Gallery 섹션을 추가할 것 (placeholder 금지 규칙 때문에 그전까지는 아트로 둠).
+- ~~Bubble Rumble: 실제 플레이 스크린샷이 없다~~ → **2026-10-30 해결.** Pixel 6 에뮬레이터에 release APK를 올려 한국어로 직접 플레이하며 캡처. 랜딩 페이지에 `From the Arena — 실제 플레이 화면` Gallery를 FIG. 02~07로 추가하고 버디 로스터는 FIG. 08~15로 밀었다 (`bubble-rumble-site` `5741bcc`).
+  - **이 게임은 가로 모드다** (2400×1080). 다른 앱들의 1080×1920 세로 스크린샷과 달라서 Gallery는 3열이 아니라 2열(`repeat(2, 1fr)`), 웹 사본은 1280×576 webp(6장 248KB)로 만들었다.
+  - 스토어 원본 9장은 `C:\src\Bubble Rumble\store\screenshots\한국어\`에 보존 (로비·방만들기·아레나·플레이·상점·스킨옷장·대기방·가방·결과). **Play 스토어 등록 때 이걸 쓰면 된다 — 지금까지 없던 자산이다.**
+  - 재캡처 방법: 에뮬레이터 부팅 → `flutter build apk --release` 산출물 설치 → `adb exec-out screencap -p` + `adb shell input tap`. 봇은 방을 만들고 `준비 완료`를 누르면 자동으로 들어찬다 (빈 자리를 탭해서 넣는 게 아니다 — `_EmptySeat`의 주석은 오래된 것).
+  - 결과 화면(`07-result`)은 캐릭터 아트가 화면을 거의 다 채워서 Gallery에 넣지 않았다.
 - **Bubble Rumble 출시 후 할 일**: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 비공개 테스트 중" 배지를 실제 `.playbadge` 다운로드 링크로, 허브 §08 킥커를 "게임 · 출시됨"으로 변경. 개인정보처리방침 4항의 "테스트 광고 단위" 문단도 실제 광고 단위 전환에 맞춰 갱신해야 함.
 
 ## 메모
