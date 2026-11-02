@@ -22,10 +22,10 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 - **폰트는 저장소에 없다** (OFL 5종, 2.4MB, `.gitignore` 처리). 재생성 절차와 받는 명령은 `play-developer-profile/README.md`에 있다. `out/`도 ignore — 업로드하는 2장만 폴더 루트에 커밋한다.
 
 ## 디자인 시스템 (2026-10-13 전면 개편)
-허브 + 8개 앱 페이지 전부가 동일한 "인쇄 매거진" 비주얼 시스템을 공유한다.
+허브 + 9개 앱 페이지 전부가 동일한 "인쇄 매거진" 비주얼 시스템을 공유한다.
 - 타이포: Big Shoulders Display(마스트헤드/헤드라인), Source Serif 4(본문, 드롭캡), Space Mono(폴리오·팩트박스·스펙)
 - 공통 요소: 세로 러닝헤드, §번호 킥커, 드롭캡 본문, 팩트박스(Platform/Status/Genre), FIG. 캡션이 붙은 스크린샷 플레이트, 콜로폰 푸터
-- 각 앱 고유 스팟 컬러: PomPom Ville `#a855c9` · 어디뒀지? `#c1694f` · 불씨 `#ff7a3d` · 동행 `#2e7d9a` · Dear Star `#d9ac52` · Orbit Hop `#e8502f` · Top of Gravity `#9b6bff` · Bubble Rumble `#2f7cf6`
+- 각 앱 고유 스팟 컬러: PomPom Ville `#a855c9` · 어디뒀지? `#c1694f` · 불씨 `#ff7a3d` · 동행 `#2e7d9a` · Dear Star `#d9ac52` · Orbit Hop `#e8502f` · Top of Gravity `#9b6bff` · Bubble Rumble `#2f7cf6` · 연화사 `#2a7d5f`
 - 앱 페이지들의 스크린샷은 각 앱의 로컬 프로젝트 폴더(Play 스토어용 에셋) 또는 Play 스토어 리스팅에서 직접 가져온 실제 이미지 — placeholder 금지.
 - 다른 앱 페이지를 수정/추가할 때는 이 톤(§번호, 드롭캡, 팩트박스, 러닝헤드)을 그대로 따를 것.
 - **주의**: Artifact 미리보기용으로 쓴 HTML 조각(fragment, `<!DOCTYPE>`/`<html>`/`<head>`/`<body>` 없음)을 실제 사이트 파일에 그대로 복사하면 깨진다 — 실제 배포 파일은 항상 완전한 문서 구조(doctype, head, charset, viewport, body, 닫는 태그)를 갖춰야 함. 2026-10-13에 이 실수로 6개 사이트가 전부 깨졌다가 수정됨.
@@ -39,6 +39,9 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 6. **Orbit Hop** (§06) — 원터치 궤도 아케이드. Android 출시 준비 중. 저장소: `orbit-hop-site`. 100단계 티어·위성 100종·20개 언어·오프라인 기본 플레이. 배포 주소도 `/orbit-hop-site/`로, 다른 앱과 달리 `-site` 접미사가 붙음에 주의.
 7. **Top of Gravity** (§07) — 중력 전환 매치-3 퍼즐. Google Play 출시 완료 (`com.kakimind.topgravity`). 저장소: `tower-of-gravity`, **Pages 루트는 `docs/`**. 한국어 스토어 이름은 '중력의 탑'. 1000 스테이지·100개 층·특수 재료 4종·안내자 5명·22개 언어. 배포 주소는 `/tower-of-gravity/`로 저장소명을 그대로 씀.
 8. **Bubble Rumble** (§08) — 물풍선 격자 파티 아케이드 (Flutter). Google Play **비공개 테스트 준비 중** (`com.kakimind.bubble_rumble`). 사이트 저장소: `bubble-rumble-site`, 앱 저장소는 비공개(로컬 `C:\src\Bubble Rumble`). 버디 8종·스킨 72종·맵 4종·모드 2종(배틀로얄 4인 / 클래식 2vs2), 온라인은 WebRTC P2P.
+9. **연화사** (§09) — 함께 절하고 명상하는 3D 온라인 사찰 (Next.js 정적 빌드 + Capacitor). Google Play **출시 준비 중** (`com.kakimind.yunhwasa`). 앱 저장소는 비공개(`kakimind/yunhwasa`, 로컬 `C:\src\yunhwasa`)라 **사이트 저장소가 따로 없고, 허브 저장소 안의 `yeonhwasa/` 폴더에서 서빙된다** (`https://kakimind.github.io/yeonhwasa/`, `/privacy.html`). 삼배·108배·염주 108알·명상 3/5/10분·향·연등·오늘의 법문 365개, 실시간 함께 참배는 Cloudflare Workers + Durable Objects.
+
+**연화사만 예외**: 위 1~8은 각자 저장소에서 배포되지만 연화사는 허브 저장소의 하위 폴더다. 고칠 때 `kakimind.github.io` 저장소에서 `yeonhwasa/`를 수정하면 된다.
 
 각 앱 페이지는 자기 저장소에서 `kakimind.github.io/<app>/`으로 배포된다 (이건 전처럼 유지됨, 안 바뀜).
 
