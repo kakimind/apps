@@ -20,7 +20,8 @@ SPOTS = [("01", (168,  85, 201)),   # PomPom Ville
          ("05", (217, 172,  82)),   # Dear Star, My Wish
          ("06", (232,  80,  47)),   # Orbit Hop
          ("07", (155, 107, 255)),   # Top of Gravity
-         ("08", ( 47, 124, 246))]   # Bubble Rumble
+         ("08", ( 47, 124, 246)),   # Bubble Rumble
+         ("09", ( 42, 125,  95))]   # 연화사
 
 # The header spells the count out, and it went stale once already: the
 # artwork still read SIX after two more titles had shipped. Spelling it
