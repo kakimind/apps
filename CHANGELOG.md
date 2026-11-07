@@ -2,6 +2,12 @@
 
 이 저장소(kakimind-apps 허브 페이지)의 변경 기록. 최신 항목이 위에 오도록 추가.
 
+## 2026-11-07
+- **Orbit Hop 정식 출시 반영.** 랜딩 페이지(`orbit-hop` `a71f812` → `orbit-hop-site` `dceafe6`)와 허브(`kakimind.github.io` `31a4574`)에서 "출시 준비 중"을 모두 걷어냈다.
+- 랜딩: 킥커 `Coming Soon` → `Released`, 팩트박스 Status 동일, 점선 pending 배지와 "다운로드 링크는 공개 출시 후…" 안내문을 실제 `.playbadge` 링크(`com.kakimind.orbithop`) 하나로 교체, og:description도 갱신.
+- 허브: §06 킥커를 "게임 · 출시됨 — 궤도 아케이드"로, Status를 `Released`로, 사이트맵 `lastmod`를 2026-11-07로.
+- 랜딩은 산출물이라 소스(`Design/orbit_hop_1/code.html`)를 고치고 `node tools/build-site.mjs`로 다시 뽑았다. 배포본은 `.site-worktree`가 최신 — `C:\src\orbit-hop-site` 클론은 `a3c9760`에서 멈춰 있어 쓰지 않았다.
+
 ## 2026-11-01
 - **연화사(온라인 사찰 앱) 소개 페이지 + 개인정보처리방침 신설.** 다른 앱들과 달리 **별도 사이트 저장소를 만들지 않고 허브 저장소(`kakimind.github.io`) 안의 `yeonhwasa/` 하위 폴더에 두었다** — 앱 저장소 `yunhwasa`가 비공개라 거기서 Pages를 켤 수 없고, 저장소 하나 + Pages 설정을 새로 만드는 대신 이미 서빙 중인 호스트에 폴더만 더하면 끝나기 때문. 주소는 다른 앱과 같은 모양(`/yeonhwasa/`, `/yeonhwasa/privacy.html`)이다.
 - 허브에 §09로 추가. 스팟 컬러는 단청 녹색 `#2a7d5f`(아이콘의 짙은 녹색 바탕에서 가져옴), `#f09`의 `grid-column` 쌍도 같이 넣었다. 목차·사이트맵·`9 FEATURES INSIDE`·메타 설명의 "8종"까지 전부 맞췄다 (`6 FEATURES INSIDE`로 한참 틀려 있던 것도 같이 고침).

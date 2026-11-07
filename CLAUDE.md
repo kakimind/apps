@@ -36,7 +36,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 3. **불씨 (Bulssi)** (§03) — 계정 없는 습관 트래커. 저장소: `bulssi-homepage`
 4. **동행** (§04) — 교대근무 캘린더 앱. 저장소: `shift-calendar` (Pages 루트는 `docs/`)
 5. **Dear Star, My Wish** (§05) — 저널링 앱. 저장소: `dear-star-my-wish`. 개인정보방침은 `privacy.html` (자기 경로 하위, 루트 아님).
-6. **Orbit Hop** (§06) — 원터치 궤도 아케이드. Android 출시 준비 중. 저장소: `orbit-hop-site`. 100단계 티어·위성 100종·20개 언어·오프라인 기본 플레이. 배포 주소도 `/orbit-hop-site/`로, 다른 앱과 달리 `-site` 접미사가 붙음에 주의.
+6. **Orbit Hop** (§06) — 원터치 궤도 아케이드. Google Play 출시 완료 (`com.kakimind.orbithop`, 2026-11-07). 저장소: `orbit-hop-site`. 100단계 티어·위성 100종·20개 언어·오프라인 기본 플레이. 배포 주소도 `/orbit-hop-site/`로, 다른 앱과 달리 `-site` 접미사가 붙음에 주의.
 7. **Top of Gravity** (§07) — 중력 전환 매치-3 퍼즐. Google Play 출시 완료 (`com.kakimind.topgravity`). 저장소: `tower-of-gravity`, **Pages 루트는 `docs/`**. 한국어 스토어 이름은 '중력의 탑'. 1000 스테이지·100개 층·특수 재료 4종·안내자 5명·22개 언어. 배포 주소는 `/tower-of-gravity/`로 저장소명을 그대로 씀.
 8. **Bubble Rumble** (§08) — 물풍선 격자 파티 아케이드 (Flutter). Google Play **비공개 테스트 준비 중** (`com.kakimind.bubble_rumble`). 사이트 저장소: `bubble-rumble-site`, 앱 저장소는 비공개(로컬 `C:\src\Bubble Rumble`). 버디 8종·스킨 72종·맵 4종·모드 2종(배틀로얄 4인 / 클래식 2vs2), 온라인은 WebRTC P2P.
 9. **연화사** (§09) — 함께 절하고 명상하는 3D 온라인 사찰 (Next.js 정적 빌드 + Capacitor). Google Play **출시 준비 중** (`com.kakimind.yunhwasa`). 앱 저장소는 비공개(`kakimind/yunhwasa`, 로컬 `C:\src\yunhwasa`)라 **사이트 저장소가 따로 없고, 허브 저장소 안의 `yeonhwasa/` 폴더에서 서빙된다** (`https://kakimind.github.io/yeonhwasa/`, `/privacy.html`). 삼배·108배·염주 108알·명상 3/5/10분·향·연등·오늘의 법문 365개, 실시간 함께 참배는 Cloudflare Workers + Durable Objects.
@@ -82,11 +82,12 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 - 2026-10-30: **Bubble Rumble 사이트 신설** (`bubble-rumble-site`, 로컬 `C:\src\bubble-rumble-site`, 첫 커밋 `d09d897`). 비공개 테스트에 필요한 랜딩 + 개인정보처리방침. 허브에 §08로 추가 (`kakimind.github.io` `e99764c`).
 - 2026-10-30: **`bubble-rumble-site` 원격 저장소 생성 + 배포 완료.** Chrome 자동화(claude-in-chrome)로 github.com/new에서 Public 저장소를 만들고 `d09d897` 푸시, Pages를 `main` / `(root)`로 설정. 허브 §08 링크 404 해소.
 - 2026-10-30: **Bubble Rumble 실제 플레이 스크린샷 확보 + Gallery 추가.** 에뮬레이터에서 직접 플레이해 9장 캡처, 6장을 랜딩 페이지 FIG. 02~07로 (`bubble-rumble-site` `5741bcc`). 원본은 앱 저장소 `store/screenshots/한국어/`에 보존.
+- 2026-11-07: **Orbit Hop 정식 출시 반영.** 랜딩 페이지와 허브에서 "출시 준비 중" 표기를 전부 걷어내고 Play 다운로드 링크를 붙였다. 랜딩은 소스(`orbit-hop` `a71f812`)를 고쳐 `build-site.mjs`로 재빌드 후 배포(`orbit-hop-site` `dceafe6`), 허브는 `31a4574`. 배포본 작업은 `C:\src\Orbit_Hop\.site-worktree`에서 — `C:\src\orbit-hop-site` 클론은 `a3c9760`에 멈춰 있어 낡았다.
 
 ## 미해결 / TODO
 - ~~Orbit Hop 페이지에 스크린샷이 1장뿐이다~~ → **2026-10-22 해결.** 실제 한국어 플레이 화면 6장으로 Gallery 섹션 추가, 배포 완료.
 - Orbit Hop 페이지가 자체 완결형(인라인 `<style>` + Google Fonts)이 되면서 `site.css`와 로컬 woff2 5종이 `index.html`에서 더 이상 참조되지 않음. `privacy.html`도 원래 독립이라 사실상 미사용 — 정리 여부 미결정. 정리하려면 `tools/build-site.mjs`의 복사 목록도 같이 수정해야 함.
-- Orbit Hop 출시 후 할 일: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 출시 준비 중" 배지를 Dear Star처럼 실제 `.playbadge` 다운로드 링크로 교체, 허브 §06 킥커도 "게임 · 출시됨"으로 변경.
+- ~~Orbit Hop 출시 후 할 일~~ → **2026-11-07 해결.** 팩트박스·킥커 Status `Released`, pending 배지 → 실제 `.playbadge` 링크, 허브 §06 킥커 "게임 · 출시됨"까지 반영 (소스 `a71f812` / 배포 `dceafe6` / 허브 `31a4574`).
 - ~~`bubble-rumble-site` 저장소가 없어 배포가 막혀 있음~~ → **2026-10-30 해결.** Chrome 자동화로 GitHub 웹에서 저장소 생성(Public, 초기화 항목 없음) → `git push -u origin main`(`d09d897`) → Settings → Pages → `main` / `(root)` 저장. `https://kakimind.github.io/bubble-rumble-site/`와 `/privacy.html` 둘 다 정상 서빙 확인. 허브 §08 링크의 404도 같이 해소됨.
   - 이전 세션에서 막혔던 원인은 Chrome 확장이 계정에 연결돼 있지 않았던 것(`list_connected_browsers` → `[]`). 이번엔 연결돼 있어서 바로 처리됨. 비슷한 GitHub 웹 작업이 필요하면 `gh` CLI나 토큰 대신 Chrome 자동화를 쓸 것.
 - **남은 일: Play Console 비공개 테스트의 개인정보처리방침 URL로 `https://kakimind.github.io/bubble-rumble-site/privacy.html` 등록** (사용자 작업).
