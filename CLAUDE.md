@@ -82,7 +82,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 - 2026-10-30: **Bubble Rumble 사이트 신설** (`bubble-rumble-site`, 로컬 `C:\src\bubble-rumble-site`, 첫 커밋 `d09d897`). 비공개 테스트에 필요한 랜딩 + 개인정보처리방침. 허브에 §08로 추가 (`kakimind.github.io` `e99764c`).
 - 2026-10-30: **`bubble-rumble-site` 원격 저장소 생성 + 배포 완료.** Chrome 자동화(claude-in-chrome)로 github.com/new에서 Public 저장소를 만들고 `d09d897` 푸시, Pages를 `main` / `(root)`로 설정. 허브 §08 링크 404 해소.
 - 2026-10-30: **Bubble Rumble 실제 플레이 스크린샷 확보 + Gallery 추가.** 에뮬레이터에서 직접 플레이해 9장 캡처, 6장을 랜딩 페이지 FIG. 02~07로 (`bubble-rumble-site` `5741bcc`). 원본은 앱 저장소 `store/screenshots/한국어/`에 보존.
-- 2026-11-07: **Orbit Hop 정식 출시 반영.** 랜딩 페이지와 허브에서 "출시 준비 중" 표기를 전부 걷어내고 Play 다운로드 링크를 붙였다. 랜딩은 소스(`orbit-hop` `a71f812`)를 고쳐 `build-site.mjs`로 재빌드 후 배포(`orbit-hop-site` `dceafe6`), 허브는 `31a4574`. 배포본 작업은 `C:\src\Orbit_Hop\.site-worktree`에서 — `C:\src\orbit-hop-site` 클론은 `a3c9760`에 멈춰 있어 낡았다.
+- 2026-11-07: **Orbit Hop 정식 출시 반영.** 랜딩 페이지와 허브에서 "출시 준비 중" 표기를 전부 걷어내고 Play 다운로드 링크를 붙였다. 랜딩은 소스(`orbit-hop` `a71f812`)를 고쳐 `build-site.mjs`로 재빌드 후 배포(`orbit-hop-site` `dceafe6`), 허브는 `31a4574`. 광고 섹션의 "테스트 광고 모드" 문구도 같이 제거(`dcbd80d`/`ac7240d`) — release 빌드는 `testMode: false`로 실제 단위를 쓴다. 배포본 작업은 `C:\src\Orbit_Hop\.site-worktree`에서 — `C:\src\orbit-hop-site` 클론은 `a3c9760`에 멈춰 있어 낡았다.
 
 ## 미해결 / TODO
 - ~~Orbit Hop 페이지에 스크린샷이 1장뿐이다~~ → **2026-10-22 해결.** 실제 한국어 플레이 화면 6장으로 Gallery 섹션 추가, 배포 완료.

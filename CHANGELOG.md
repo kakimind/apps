@@ -7,6 +7,8 @@
 - 랜딩: 킥커 `Coming Soon` → `Released`, 팩트박스 Status 동일, 점선 pending 배지와 "다운로드 링크는 공개 출시 후…" 안내문을 실제 `.playbadge` 링크(`com.kakimind.orbithop`) 하나로 교체, og:description도 갱신.
 - 허브: §06 킥커를 "게임 · 출시됨 — 궤도 아케이드"로, Status를 `Released`로, 사이트맵 `lastmod`를 2026-11-07로.
 - 랜딩은 산출물이라 소스(`Design/orbit_hop_1/code.html`)를 고치고 `node tools/build-site.mjs`로 다시 뽑았다. 배포본은 `.site-worktree`가 최신 — `C:\src\orbit-hop-site` 클론은 `a3c9760`에서 멈춰 있어 쓰지 않았다.
+- 랜딩의 광고 섹션에 남아 있던 "현재 테스트 빌드는 테스트 광고 모드입니다." 문장도 제거했다 (소스 `dcbd80d` / 배포 `ac7240d`). release 빌드의 `admob_config`가 `testMode: false`에 실제 단위 ID(`ca-app-pub-7834868288333512/...`)를 쓰고 있어 사실과 달라진 문구였다. `privacy.html`에는 테스트 광고 언급이 없어 손대지 않았다.
+- 호스트 루트 `app-ads.txt`의 게시자 ID(`pub-7834868288333512`)가 Orbit Hop의 AdMob 게시자와 일치해 추가 작업은 없다 — Play 등록정보의 웹사이트가 `https://kakimind.github.io/`이면 그대로 인증된다.
 
 ## 2026-11-01
 - **연화사(온라인 사찰 앱) 소개 페이지 + 개인정보처리방침 신설.** 다른 앱들과 달리 **별도 사이트 저장소를 만들지 않고 허브 저장소(`kakimind.github.io`) 안의 `yeonhwasa/` 하위 폴더에 두었다** — 앱 저장소 `yunhwasa`가 비공개라 거기서 Pages를 켤 수 없고, 저장소 하나 + Pages 설정을 새로 만드는 대신 이미 서빙 중인 호스트에 폴더만 더하면 끝나기 때문. 주소는 다른 앱과 같은 모양(`/yeonhwasa/`, `/yeonhwasa/privacy.html`)이다.
