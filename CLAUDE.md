@@ -69,7 +69,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
   - 랜딩 페이지용 웹 사본(720×1280)은 `Design/orbit_hop_1/shots/`에 영문명(`lobby/play/result/hangar/missions/settings.png`)으로 두고 `build-site.mjs`가 `assets/shots/`로 복사함. 스토어 원본은 건드리지 말 것.
   - **주의**: `.report_assets/device/`의 기기 캡쳐 73장은 여전히 QA용이라 사용 불가 ("Test Ad" 배너, 에러 다이얼로그, 영어·이탈리아어 혼재). 혼동하지 말 것.
   - 콘셉트 아트는 `Design/modern_minimalist_.../screen.png`(→ 배포 시 `assets/orbit-art.png`), 랜딩 페이지의 FIG. 01로 계속 사용 중.
-- LUNARCANA: `C:\src\LUNARCANA` (Flutter). 덱 원화는 `assets/tarot/images/`(78장, 720×1290), 스토어 아이콘 `store/icon/icon.png`, 스크린샷 `store/screenshots/`(4장), 등록정보 원본 `store/LISTING.md`. **덱은 직접 그린 한국풍 78장이고 RWS 스캔이 아니다** — 출처를 적는 문구는 `assets/tarot/ART_LICENSE.txt`를 근거로 쓸 것.
+- LUNARCANA: `C:\src\LUNARCANA` (Flutter). 덱 원화는 `assets/tarot/images/`(78장, 720×1290), 스토어 아이콘 `store/icon/icon.png`, 스크린샷 `store/screenshots/`(4장, 900×1600 — **기기 프레임 + 마케팅 헤드라인이 박힌 홍보 이미지이고 실제 화면은 뽑기·켈틱크로스 두 종류뿐**), 등록정보 원본 `store/LISTING.md`. 랜딩용 웹 사본은 `docs/shots/*.webp`(640×1137). **덱은 직접 그린 한국풍 78장이고 RWS 스캔이 아니다** — 출처를 적는 문구는 `assets/tarot/ART_LICENSE.txt`를 근거로 쓸 것.
 
 ## SEO / 검색 등록 상태 (2026-10-13)
 - `kakimind.github.io` 호스트 전체가 네이버 서치어드바이저에 등록되고 소유확인 완료 (`naver-site-verification` 메타태그는 허브 index.html에 있음).
