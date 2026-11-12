@@ -109,7 +109,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
   - 결과 화면(`07-result`)은 캐릭터 아트가 화면을 거의 다 채워서 Gallery에 넣지 않았다.
 - **Bubble Rumble 출시 후 할 일**: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 비공개 테스트 중" 배지를 실제 `.playbadge` 다운로드 링크로, 허브 §08 킥커를 "게임 · 출시됨"으로 변경. 개인정보처리방침 4항의 "테스트 광고 단위" 문단도 실제 광고 단위 전환에 맞춰 갱신해야 함.
 
-- **LUNARCANA 남은 일**: ① 사이트 커밋 `site-main`을 `lunarcana` 저장소로 푸시(`git push origin site-main:main`) — 아직 안 올라갔다. ② Play Console 비공개 테스트의 개인정보처리방침 URL에 `https://kakimind.github.io/lunarcana/privacy.html` 등록(사용자 작업). ③ 랜딩에 실제 플레이 스크린샷이 없다 — `store/screenshots/`에 4장이 있으니 다른 앱들처럼 FIG. Gallery로 넣을 수 있다. ④ 출시되면 킥커·팩트박스 Status를 `Released`로, CTA를 Play 배지로, 허브 §10 킥커를 "앱 · 출시됨"으로. ~~⑤ 개발자 프로필 에셋 재생성~~ → 2026-11-12 완료 (10개 기준, "TEN TITLES INSIDE").
+- **LUNARCANA 남은 일**: ① **Play Console 비공개 테스트의 개인정보처리방침 URL에 `https://kakimind.github.io/lunarcana/privacy.html` 등록**(사용자 작업). 같이, 방침이 "리딩 내용을 Google·Groq로 전송"으로 바뀌었으니 **데이터 안전성 양식도 '앱 활동/기타 사용자 콘텐츠 → 제3자 전송'으로 맞춰야 한다.** ② Play 개발자 프로필에 10개 기준으로 다시 뽑은 아이콘 512 / 헤더 4096×2304 업로드(사용자 작업). ③ 랜딩의 화면 4장이 스토어 홍보 이미지라 마케팅 밴드가 박혀 있고 실제 화면은 두 종류뿐 — 지난 리딩·설정 화면을 찍으면 교체. ④ 출시되면 킥커·팩트박스 Status를 `Released`로, CTA를 Play 배지로, 허브 §10 킥커를 "앱 · 출시됨"으로. ~~⑤ 개발자 프로필 에셋 재생성~~ → 2026-11-12 완료.
 
 ## 메모
 - 앱 상태(출시/심사중 등) 태그는 각 페이지의 §킥커("앱 · 출시됨" 등)로 표시 — 상태 변경 시 커밋 메시지와 CHANGELOG.md에 함께 기록.
