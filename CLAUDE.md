@@ -109,7 +109,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
   - 결과 화면(`07-result`)은 캐릭터 아트가 화면을 거의 다 채워서 Gallery에 넣지 않았다.
 - **Bubble Rumble 출시 후 할 일**: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 비공개 테스트 중" 배지를 실제 `.playbadge` 다운로드 링크로, 허브 §08 킥커를 "게임 · 출시됨"으로 변경. 개인정보처리방침 4항의 "테스트 광고 단위" 문단도 실제 광고 단위 전환에 맞춰 갱신해야 함.
 
-- **LUNARCANA 남은 일**: ① 사이트 커밋 `site-main`을 `lunarcana` 저장소로 푸시(`git push origin site-main:main`) — 아직 안 올라갔다. ② Play Console 비공개 테스트의 개인정보처리방침 URL에 `https://kakimind.github.io/lunarcana/privacy.html` 등록(사용자 작업). ③ 랜딩에 실제 플레이 스크린샷이 없다 — `store/screenshots/`에 4장이 있으니 다른 앱들처럼 FIG. Gallery로 넣을 수 있다. ④ 출시되면 킥커·팩트박스 Status를 `Released`로, CTA를 Play 배지로, 허브 §10 킥커를 "앱 · 출시됨"으로. ⑤ 개발자 프로필 에셋(`play-developer-profile/`)의 `SPOTS`에 `("10", (138,40,70))` 한 줄 추가해 재생성 — 아직 9개 기준이다.
+- **LUNARCANA 남은 일**: ① 사이트 커밋 `site-main`을 `lunarcana` 저장소로 푸시(`git push origin site-main:main`) — 아직 안 올라갔다. ② Play Console 비공개 테스트의 개인정보처리방침 URL에 `https://kakimind.github.io/lunarcana/privacy.html` 등록(사용자 작업). ③ 랜딩에 실제 플레이 스크린샷이 없다 — `store/screenshots/`에 4장이 있으니 다른 앱들처럼 FIG. Gallery로 넣을 수 있다. ④ 출시되면 킥커·팩트박스 Status를 `Released`로, CTA를 Play 배지로, 허브 §10 킥커를 "앱 · 출시됨"으로. ~~⑤ 개발자 프로필 에셋 재생성~~ → 2026-11-12 완료 (10개 기준, "TEN TITLES INSIDE").
 
 ## 메모
 - 앱 상태(출시/심사중 등) 태그는 각 페이지의 §킥커("앱 · 출시됨" 등)로 표시 — 상태 변경 시 커밋 메시지와 CHANGELOG.md에 함께 기록.
