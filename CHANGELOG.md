@@ -2,6 +2,14 @@
 
 이 저장소(kakimind-apps 허브 페이지)의 변경 기록. 최신 항목이 위에 오도록 추가.
 
+## 2026-11-12
+- **LUNARCANA(루나카나) 비공개 테스트 진입 반영.** 허브에 §10으로 추가 (`kakimind.github.io` `496cb4a`). 스팟 컬러는 앱 팔레트의 가넷 `#8a2846`, 플레이트는 `store/icon/icon.png`(512)를 `assets/lunarcana.png`로 복사. 목차·`10 FEATURES INSIDE`·`#f10` grid-column·사이트맵까지 같이 맞췄다.
+- **랜딩 페이지가 앱과 어긋나 있던 것을 바로잡았다** (`lunarcana` `fd1def4` / 앱 저장소 `92c3501`). 페이지는 "1909년 라이더-웨이트 덱의 78장 원화 스캔을 그대로 사용"이라고 적고 있었는데, 실제로 출시되는 덱은 직접 그린 한국풍 78장이다(`assets/tarot/ART_LICENSE.txt`). 공개 페이지에 남은 거짓 서술이라 문구를 스토어 등록정보와 같은 말로 바꾸고, `docs/cards/`의 RWS 스캔 4장도 현재 덱의 같은 카드(720×1290)로 교체했다. 배경 박스는 `background-size:cover`에 비율도 1:1.79로 거의 같아 CSS는 손대지 않았다.
+- **개인정보처리방침이 사실과 달랐다 — 이게 가장 급한 문제였다.** 1항이 "리딩 대화는 기기 내(온디바이스) AI 모델을 통해 처리되며 서버로 전송되지 않는다"고 단언하고 있었다. 온디바이스 Gemma 3 1B 방식은 2026-11-09에 폐기됐고 지금은 Gemini API + Groq로 전송된다. **이 URL이 Play Console에 올라가는 문서이므로 데이터 안전성 양식과 어긋나면 심사 문제가 된다.** 전송 주체·전송 항목(질문, 뽑힌 카드의 이름·정역·자리, 언어, 고정 지시문)·제공자가 자체 정책으로 보관·학습에 쓸 수 있다는 점을 명시하고, 3·4·5항의 "서버 미전송" 전제도 같이 고쳤다.
+- 같은 문서의 AdMob 문단도 정리했다. 앱에 광고 SDK가 아예 없어(`pubspec.yaml`에 `google_mobile_ads` 없음) "보상형 광고로 일부 기능 제공 예정"은 미래 계획을 현재 수집 항목처럼 적은 것이었다 — "테스트 버전에 광고 없음, 도입 전 갱신"으로 바꾸고 이용 목적의 "광고 기반 무료 서비스 운영" 줄을 뺐다. 충돌 로그 항목도 Crashlytics가 없으므로 Play 기본 보고로 정정.
+- 상태 표기: 히어로/내비 CTA "출시 알림 받기" → "비공개 테스트 중", 최종 CTA 패널의 "출시 준비 중 / 지금은 컨셉 단계입니다"를 비공개 테스트 안내와 테스터 지원 메일로, 푸터 `CONCEPT PREVIEW`/`CONCEPT DRAFT — NOT YET FILED` → `CLOSED TESTING`.
+- **⚠️ `lunarcana` 저장소에 `main`을 그대로 푸시하면 안 된다.** 로컬 `C:\src\LUNARCANA`는 원격이 둘이다 — `origin`=공개 사이트 저장소 `lunarcana`(`docs/`만 남기고 비워 둔 상태, Pages 루트 `docs/`), `app`=비공개 앱 저장소 `lunarcana-app`. 로컬 `main`은 `app/main`과 같고 `origin/main`보다 6커밋 앞서 있는데, 그 6커밋이 Flutter 앱 전체다. 그래서 사이트용 커밋은 `origin/main`에서 딴 `site-main` 브랜치(`docs/`만 있는 트리)에 따로 만들었다.
+
 ## 2026-11-07
 - **Orbit Hop 정식 출시 반영.** 랜딩 페이지(`orbit-hop` `a71f812` → `orbit-hop-site` `dceafe6`)와 허브(`kakimind.github.io` `31a4574`)에서 "출시 준비 중"을 모두 걷어냈다.
 - 랜딩: 킥커 `Coming Soon` → `Released`, 팩트박스 Status 동일, 점선 pending 배지와 "다운로드 링크는 공개 출시 후…" 안내문을 실제 `.playbadge` 링크(`com.kakimind.orbithop`) 하나로 교체, og:description도 갱신.
