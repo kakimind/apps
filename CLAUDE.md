@@ -71,6 +71,12 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
   - 콘셉트 아트는 `Design/modern_minimalist_.../screen.png`(→ 배포 시 `assets/orbit-art.png`), 랜딩 페이지의 FIG. 01로 계속 사용 중.
 - LUNARCANA: `C:\src\LUNARCANA` (Flutter). 덱 원화는 `assets/tarot/images/`(78장, 720×1290), 스토어 아이콘 `store/icon/icon.png`, 스크린샷 `store/screenshots/`(4장, 900×1600 — **기기 프레임 + 마케팅 헤드라인이 박힌 홍보 이미지이고 실제 화면은 뽑기·켈틱크로스 두 종류뿐**), 등록정보 원본 `store/LISTING.md`. 랜딩용 웹 사본은 `docs/shots/*.webp`(640×1137). **덱은 직접 그린 한국풍 78장이고 RWS 스캔이 아니다** — 출처를 적는 문구는 `assets/tarot/ART_LICENSE.txt`를 근거로 쓸 것.
 
+## 방문자 카운터 (2026-11-16)
+- 허브(`kakimind.github.io` `192debb`)에만 **GoatCounter** 무료 계정(`kakimind.goatcounter.com`)을 붙였다. 집계는 `//gc.zgo.at/count.js` 한 줄, 표시는 콜로폰 `.meta`에 "Readers — 오늘/이번 달/전체" 한 줄 + 인라인 스크립트에서 `https://kakimind.goatcounter.com/counter/TOTAL.json`을 `?start=` 유무로 세 번 호출. 새 CSS 없음(기존 Space Mono `.meta` 재사용), 실패하면 `—` 유지.
+- **대시보드의 `allow using the visitor counter` 설정이 꺼져 있으면 카운터 API가 403**이다(에러 문구 그대로). 숫자가 `—`로만 보이면 여기부터 확인.
+- 무가입 대안은 다 죽어 있었다 — `api.counterapi.dev/v1`은 410 폐기(v2는 워크스페이스 필요), `abacus.jasoncameron.dev`는 500. 그래서 가입이 필요한 GoatCounter를 썼다.
+- "오늘" 경계는 브라우저 로컬 시간 기준이라 GoatCounter 사이트 타임존과 다르면 자정 전후로 어긋난다. 앱 10개 페이지에는 넣지 않았다.
+
 ## SEO / 검색 등록 상태 (2026-10-13)
 - `kakimind.github.io` 호스트 전체가 네이버 서치어드바이저에 등록되고 소유확인 완료 (`naver-site-verification` 메타태그는 허브 index.html에 있음).
 - sitemap.xml, robots.txt는 `kakimind.github.io` 저장소 루트에 있음 (이 저장소 `apps`에는 없음 — 리다이렉트 스텁이라 불필요해서 제거함).

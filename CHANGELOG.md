@@ -4,6 +4,11 @@
 
 ## 2026-11-16
 
+### 허브에 방문자 카운터 추가
+- 허브 콜로폰에 `Readers — 오늘 N · 이번 달 N · 전체 N` 한 줄 (`kakimind.github.io` `192debb`). GoatCounter 무료 계정(`kakimind.goatcounter.com`) + 공개 counter 엔드포인트. 정적 호스팅이라 서버 없이 되는 방법이 이것뿐이었다.
+- 코드는 `<script data-goatcounter=…>` 한 줄과 기존 인라인 `<script>`에 붙인 IIFE 하나뿐. 숫자 포맷은 API가 사이트 설정의 천단위 구분자(얇은 공백)로 주므로 숫자만 뽑아 `toLocaleString('ko-KR')`로 다시 찍는다.
+- 가입 없이 쓰는 카운터를 먼저 시도했지만 counterapi v1은 410 폐기, abacus는 500이었다. 그리고 GoatCounter는 대시보드에서 `allow using the visitor counter`를 켜야 API가 403을 안 준다 — 이 설정이 숫자가 안 보일 때 첫 번째 확인 지점.
+
 ### Bubble Rumble 프로덕션 출시 반영
 - 랜딩 페이지(`bubble-rumble-site` `5a22512`): 킥커 `Closed Testing` → `Released`, 팩트박스 Status 동일, 점선 "◷ Google Play 비공개 테스트 중" 배지를 실제 다운로드 링크(`com.kakimind.bubble_rumble`)로 교체하고 `badge-note`를 TOG와 같은 "무료 · 보상형 광고는 직접 선택할 때만" 문구로. 쓰이지 않게 된 `.playbadge.pending` 규칙 삭제. meta/og 설명의 "Android 비공개 테스트 중"도 같이.
 - 개인정보처리방침: 4항의 **"현재 비공개 테스트 빌드는 테스트 광고 단위를 사용한다"** 문단을 삭제하고 시행일을 11-16으로. 앱의 `lib/models/ads.dart`가 `kReleaseMode`로 실제 Android 단위를 고르므로 출시 빌드에는 해당되지 않는 문장이었다 — Play Console에 올라가는 문서라 사실과 어긋나면 곤란하다. 랜딩의 광고 정책 03번 항목에서도 같은 문장을 제거.
