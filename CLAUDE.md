@@ -38,7 +38,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 5. **Dear Star, My Wish** (§05) — 저널링 앱. 저장소: `dear-star-my-wish`. 개인정보방침은 `privacy.html` (자기 경로 하위, 루트 아님).
 6. **Orbit Hop** (§06) — 원터치 궤도 아케이드. Google Play 출시 완료 (`com.kakimind.orbithop`, 2026-11-07). 저장소: `orbit-hop-site`. 100단계 티어·위성 100종·20개 언어·오프라인 기본 플레이. 배포 주소도 `/orbit-hop-site/`로, 다른 앱과 달리 `-site` 접미사가 붙음에 주의.
 7. **Top of Gravity** (§07) — 중력 전환 매치-3 퍼즐. Google Play 출시 완료 (`com.kakimind.topgravity`). 저장소: `tower-of-gravity`, **Pages 루트는 `docs/`**. 한국어 스토어 이름은 '중력의 탑'. 1000 스테이지·100개 층·특수 재료 4종·안내자 5명·22개 언어. 배포 주소는 `/tower-of-gravity/`로 저장소명을 그대로 씀.
-8. **Bubble Rumble** (§08) — 물풍선 격자 파티 아케이드 (Flutter). Google Play **비공개 테스트 준비 중** (`com.kakimind.bubble_rumble`). 사이트 저장소: `bubble-rumble-site`, 앱 저장소는 비공개(로컬 `C:\src\Bubble Rumble`). 버디 8종·스킨 72종·맵 4종·모드 2종(배틀로얄 4인 / 클래식 2vs2), 온라인은 WebRTC P2P.
+8. **Bubble Rumble** (§08) — 물풍선 격자 파티 아케이드 (Flutter). Google Play **출시 완료** (`com.kakimind.bubble_rumble`, 2026-11-16). 사이트 저장소: `bubble-rumble-site`, 앱 저장소는 비공개(로컬 `C:\src\Bubble Rumble`). 버디 8종·스킨 72종·맵 4종·모드 2종(배틀로얄 4인 / 클래식 2vs2), 온라인은 WebRTC P2P.
 9. **연화사** (§09) — 함께 절하고 명상하는 3D 온라인 사찰 (Next.js 정적 빌드 + Capacitor). Google Play **출시 준비 중** (`com.kakimind.yunhwasa`). 앱 저장소는 비공개(`kakimind/yunhwasa`, 로컬 `C:\src\yunhwasa`)라 **사이트 저장소가 따로 없고, 허브 저장소 안의 `yeonhwasa/` 폴더에서 서빙된다** (`https://kakimind.github.io/yeonhwasa/`, `/privacy.html`). 삼배·108배·염주 108알·명상 3/5/10분·향·연등·오늘의 법문 365개, 실시간 함께 참배는 Cloudflare Workers + Durable Objects.
 10. **LUNARCANA** (§10) — 직접 그린 78장 타로 덱으로 한 장씩 대화하며 읽는 AI 타로 앱 (Flutter). Google Play **비공개 테스트 중** (`com.kakimind.lunarcana`). 로컬 `C:\src\LUNARCANA`. 리딩은 Gemini API(기본) + Groq(대체)로 생성 — 온디바이스 아님. 스팟 컬러 가넷 `#8a2846`. 사이트는 **공개 저장소 `lunarcana`의 `docs/`** 에서 `https://kakimind.github.io/lunarcana/`로 서빙 (`/privacy.html` 포함).
 
@@ -64,7 +64,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 - 동행: `C:\src\Shift Calendar` (store_screenshots/한국어)
 - Dear Star: `C:\src\Dear Star_ My Wish\flutter_application_1` (store_assets/screenshots) — 주의: 비슷한 이름의 `Dear Star, My Wish` 폴더(쉼표)는 빈 스텁이고, 진짜는 언더스코어 버전.
 - Top of Gravity: `C:\src\Top of gravity` (Capacitor+Phaser). `store/스크린샷/<언어>/`에 **22개 언어 × 5장**(`01-로비` `02-상점` `03-이야기` `04-플레이` `05-스테이지클리어`, 1080×1920), `store/그래픽이미지/`에 언어별 피처 그래픽. 사이트용 사본은 `docs/assets/shots/*.webp`(720×1280)로 축소해 둠 — 스토어 원본은 건드리지 말 것.
-- Bubble Rumble: `C:\src\Bubble Rumble` (Flutter). **스토어용 스크린샷과 앱 아이콘이 아직 없음** (`ic_launcher.png`가 Flutter 템플릿 기본값). 쓸 수 있는 이미지는 `assets/images/skins/<캐릭터>/`의 캐릭터 아트 72장(512×512 PNG)뿐이며, 사이트 사본은 `bubble-rumble-site/assets/`에 webp로 있음.
+- Bubble Rumble: `C:\src\Bubble Rumble` (Flutter). 스토어용 스크린샷 9장은 `store/screenshots/한국어/`에 있고(2026-10-30 캡처), **앱 아이콘은 아직 없음** (`ic_launcher.png`가 Flutter 템플릿 기본값). 아이콘 대신 쓸 수 있는 이미지는 `assets/images/skins/<캐릭터>/`의 캐릭터 아트 72장(512×512 PNG)뿐이며, 사이트 사본은 `bubble-rumble-site/assets/`에 webp로 있음.
 - Orbit Hop: `C:\src\Orbit_Hop` — **스크린샷 있음** (2026-10-22 생성). `store/screenshots/<언어>/`에 **20개 언어 × 6장**(`01-플레이` `02-로비` `03-격납고` `04-결과` `05-설정` `06-미션`, 각 1080×1920). 한국어는 `02-한국어-ko-KR`. 테스트 광고 배너·에러 다이얼로그 없이 깨끗함. `store/feature-graphic/`에 언어별 피처 그래픽도 있음.
   - 랜딩 페이지용 웹 사본(720×1280)은 `Design/orbit_hop_1/shots/`에 영문명(`lobby/play/result/hangar/missions/settings.png`)으로 두고 `build-site.mjs`가 `assets/shots/`로 복사함. 스토어 원본은 건드리지 말 것.
   - **주의**: `.report_assets/device/`의 기기 캡쳐 73장은 여전히 QA용이라 사용 불가 ("Test Ad" 배너, 에러 다이얼로그, 영어·이탈리아어 혼재). 혼동하지 말 것.
@@ -91,6 +91,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 - 2026-10-30: **`bubble-rumble-site` 원격 저장소 생성 + 배포 완료.** Chrome 자동화(claude-in-chrome)로 github.com/new에서 Public 저장소를 만들고 `d09d897` 푸시, Pages를 `main` / `(root)`로 설정. 허브 §08 링크 404 해소.
 - 2026-10-30: **Bubble Rumble 실제 플레이 스크린샷 확보 + Gallery 추가.** 에뮬레이터에서 직접 플레이해 9장 캡처, 6장을 랜딩 페이지 FIG. 02~07로 (`bubble-rumble-site` `5741bcc`). 원본은 앱 저장소 `store/screenshots/한국어/`에 보존.
 - 2026-11-07: **Orbit Hop 정식 출시 반영.** 랜딩 페이지와 허브에서 "출시 준비 중" 표기를 전부 걷어내고 Play 다운로드 링크를 붙였다. 랜딩은 소스(`orbit-hop` `a71f812`)를 고쳐 `build-site.mjs`로 재빌드 후 배포(`orbit-hop-site` `dceafe6`), 허브는 `31a4574`. 광고 섹션의 "테스트 광고 모드" 문구도 같이 제거(`dcbd80d`/`ac7240d`) — release 빌드는 `testMode: false`로 실제 단위를 쓴다. 배포본 작업은 `C:\src\Orbit_Hop\.site-worktree`에서 — `C:\src\orbit-hop-site` 클론은 `a3c9760`에 멈춰 있어 낡았다.
+- 2026-11-16: **Bubble Rumble 프로덕션 출시 반영.** 랜딩·개인정보처리방침·허브에서 비공개 테스트 표기를 걷어내고 Play 다운로드 링크를 붙였다 (사이트 `5a22512`, 허브 `dfc6a1e`).
 - 2026-11-12: **LUNARCANA 비공개 테스트 진입 반영.** 허브 §10 추가(`496cb4a`), 랜딩/개인정보처리방침을 실제 앱 기준으로 교정(사이트 `fd1def4`, 앱 저장소 `92c3501`). 랜딩이 덱을 "라이더-웨이트 원화 스캔"이라 설명하고 방침 1항이 "온디바이스 처리, 서버 미전송"이라 단언하던 것을 둘 다 고쳤다 — 후자는 Play Console에 올라가는 문서라 데이터 안전성 양식과 어긋나면 심사 문제가 된다.
 
 ## 미해결 / TODO
@@ -99,7 +100,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 - ~~Orbit Hop 출시 후 할 일~~ → **2026-11-07 해결.** 팩트박스·킥커 Status `Released`, pending 배지 → 실제 `.playbadge` 링크, 허브 §06 킥커 "게임 · 출시됨"까지 반영 (소스 `a71f812` / 배포 `dceafe6` / 허브 `31a4574`).
 - ~~`bubble-rumble-site` 저장소가 없어 배포가 막혀 있음~~ → **2026-10-30 해결.** Chrome 자동화로 GitHub 웹에서 저장소 생성(Public, 초기화 항목 없음) → `git push -u origin main`(`d09d897`) → Settings → Pages → `main` / `(root)` 저장. `https://kakimind.github.io/bubble-rumble-site/`와 `/privacy.html` 둘 다 정상 서빙 확인. 허브 §08 링크의 404도 같이 해소됨.
   - 이전 세션에서 막혔던 원인은 Chrome 확장이 계정에 연결돼 있지 않았던 것(`list_connected_browsers` → `[]`). 이번엔 연결돼 있어서 바로 처리됨. 비슷한 GitHub 웹 작업이 필요하면 `gh` CLI나 토큰 대신 Chrome 자동화를 쓸 것.
-- **남은 일: Play Console 비공개 테스트의 개인정보처리방침 URL로 `https://kakimind.github.io/bubble-rumble-site/privacy.html` 등록** (사용자 작업).
+- **남은 일: Play Console 프로덕션의 개인정보처리방침 URL로 `https://kakimind.github.io/bubble-rumble-site/privacy.html` 등록 확인** (사용자 작업).
 
 - **Bubble Rumble: 앱 아이콘이 없다.** `ic_launcher.png`가 Flutter 템플릿 기본값이라, 허브 §08 플레이트와 사이트 파비콘을 캐릭터 아트로 대신 쓰고 있음(캡션에 "캐릭터 아트"라고 명시). 아이콘이 생기면 `kakimind-hub/assets/bubblerumble.png`와 `bubble-rumble-site/icon.png`를 교체하고 허브 캡션도 "아이콘"으로 되돌릴 것.
 - ~~Bubble Rumble: 실제 플레이 스크린샷이 없다~~ → **2026-10-30 해결.** Pixel 6 에뮬레이터에 release APK를 올려 한국어로 직접 플레이하며 캡처. 랜딩 페이지에 `From the Arena — 실제 플레이 화면` Gallery를 FIG. 02~07로 추가하고 버디 로스터는 FIG. 08~15로 밀었다 (`bubble-rumble-site` `5741bcc`).
@@ -107,7 +108,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
   - 스토어 원본 9장은 `C:\src\Bubble Rumble\store\screenshots\한국어\`에 보존 (로비·방만들기·아레나·플레이·상점·스킨옷장·대기방·가방·결과). **Play 스토어 등록 때 이걸 쓰면 된다 — 지금까지 없던 자산이다.**
   - 재캡처 방법: 에뮬레이터 부팅 → `flutter build apk --release` 산출물 설치 → `adb exec-out screencap -p` + `adb shell input tap`. 봇은 방을 만들고 `준비 완료`를 누르면 자동으로 들어찬다 (빈 자리를 탭해서 넣는 게 아니다 — `_EmptySeat`의 주석은 오래된 것).
   - 결과 화면(`07-result`)은 캐릭터 아트가 화면을 거의 다 채워서 Gallery에 넣지 않았다.
-- **Bubble Rumble 출시 후 할 일**: 팩트박스 Status를 `Released`로, 점선 "◷ Google Play 비공개 테스트 중" 배지를 실제 `.playbadge` 다운로드 링크로, 허브 §08 킥커를 "게임 · 출시됨"으로 변경. 개인정보처리방침 4항의 "테스트 광고 단위" 문단도 실제 광고 단위 전환에 맞춰 갱신해야 함.
+- ~~Bubble Rumble 출시 후 할 일~~ → **2026-11-16 해결.** 킥커·팩트박스 Status `Released`, 점선 배지 → 실제 Play 링크, 허브 §08 킥커 "게임 · 출시됨", 개인정보처리방침의 테스트 광고 단위 문단 삭제 (사이트 `5a22512` / 허브 `dfc6a1e`). release 빌드는 `kReleaseMode`로 실제 Android 단위(`ca-app-pub-7834868288333512/6156308171`)를 쓴다.
 
 - **LUNARCANA 남은 일**: ① **Play Console 비공개 테스트의 개인정보처리방침 URL에 `https://kakimind.github.io/lunarcana/privacy.html` 등록**(사용자 작업). 같이, 방침이 "리딩 내용을 Google·Groq로 전송"으로 바뀌었으니 **데이터 안전성 양식도 '앱 활동/기타 사용자 콘텐츠 → 제3자 전송'으로 맞춰야 한다.** ② Play 개발자 프로필에 10개 기준으로 다시 뽑은 아이콘 512 / 헤더 4096×2304 업로드(사용자 작업). ③ 랜딩의 화면 4장이 스토어 홍보 이미지라 마케팅 밴드가 박혀 있고 실제 화면은 두 종류뿐 — 지난 리딩·설정 화면을 찍으면 교체. ④ 출시되면 킥커·팩트박스 Status를 `Released`로, CTA를 Play 배지로, 허브 §10 킥커를 "앱 · 출시됨"으로. ~~⑤ 개발자 프로필 에셋 재생성~~ → 2026-11-12 완료.
 

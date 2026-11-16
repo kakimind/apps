@@ -2,6 +2,14 @@
 
 이 저장소(kakimind-apps 허브 페이지)의 변경 기록. 최신 항목이 위에 오도록 추가.
 
+## 2026-11-16
+
+### Bubble Rumble 프로덕션 출시 반영
+- 랜딩 페이지(`bubble-rumble-site` `5a22512`): 킥커 `Closed Testing` → `Released`, 팩트박스 Status 동일, 점선 "◷ Google Play 비공개 테스트 중" 배지를 실제 다운로드 링크(`com.kakimind.bubble_rumble`)로 교체하고 `badge-note`를 TOG와 같은 "무료 · 보상형 광고는 직접 선택할 때만" 문구로. 쓰이지 않게 된 `.playbadge.pending` 규칙 삭제. meta/og 설명의 "Android 비공개 테스트 중"도 같이.
+- 개인정보처리방침: 4항의 **"현재 비공개 테스트 빌드는 테스트 광고 단위를 사용한다"** 문단을 삭제하고 시행일을 11-16으로. 앱의 `lib/models/ads.dart`가 `kReleaseMode`로 실제 Android 단위를 고르므로 출시 빌드에는 해당되지 않는 문장이었다 — Play Console에 올라가는 문서라 사실과 어긋나면 곤란하다. 랜딩의 광고 정책 03번 항목에서도 같은 문장을 제거.
+- 허브 §08(`kakimind.github.io` `dfc6a1e`): 킥커 "게임 · 비공개 테스트" → "게임 · 출시됨", 팩트박스 Status `Released`. 사이트맵엔 이미 들어가 있어 손댈 것 없음.
+- Play 스토어 링크는 `curl`로 200 확인.
+
 ## 2026-11-12
 
 ### LUNARCANA(루나카나) 비공개 테스트 진입
