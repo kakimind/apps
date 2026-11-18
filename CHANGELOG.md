@@ -2,6 +2,21 @@
 
 이 저장소(kakimind-apps 허브 페이지)의 변경 기록. 최신 항목이 위에 오도록 추가.
 
+## 2026-11-17
+
+### 연화사 출시 반영 + 실제 화면 5장
+- Google Play 정식 출시(`com.kakimind.yunhwasa`) 확인하고 "출시 준비 중" 표기를 전부 걷어냈다. 킥커 `§09 — Meditation — Released`, 팩트박스 Status `Released`, 점선 pending 배지 → 실제 Play 링크, meta description 문구, 허브 §09 킥커 "앱 · 출시됨" + Status (허브 `00c5722`).
+- `Inside the Hall — 실제 화면` 갤러리를 FIG. 02~06으로 추가. 원본은 앱 저장소 `docs/스토어-그림/스크린샷1~5`(1080×1920), 웹 사본은 `yeonhwasa/shots/*.webp`(720×1280, 5장 214KB). 마케팅 밴드 없는 실제 화면이라 그대로 썼다. 갤러리 CSS는 Top of Gravity 쪽 3열 규칙을 그대로 가져옴.
+- 개인정보처리방침: "현재 빌드는 테스트 광고 단위를 사용합니다" 문단 삭제, 시행일 2026-11-17로 갱신.
+
+### LUNARCANA 언어 수 22 → 18
+- 앱의 실제 로케일이 18개(`cs de en es fr id it ja ko nl pl pt ru sv tr uk vi zh`)라 랜딩의 다섯 군데 숫자와 `.lang-strip` 칩에서 아랍어·힌디어·태국어·그리스어 4개를 뺐다. 허브 §10 본문도 같이 (사이트 `f572d3a`, 앱 저장소 `25b9319`, 허브 `00c5722`).
+- 허브 §07 Top of Gravity의 "22개 언어"는 진짜 22개라 그대로 뒀다 — 전체 치환 금지.
+
+### 사이트 공통
+- 허브 커버에 우측 하단 고정 `↑ TOP` 버튼 (`ac15af4`). JS 없이 `position: fixed` + `#top` 앵커, 스무스 스크롤은 `prefers-reduced-motion` 존중.
+- LUNARCANA 랜딩에 허브로 돌아가는 `← Back to Issue Index`가 빠져 있어 추가. 처음엔 내비 안에 넣었다가 다른 앱 페이지와 같은 고정 우상단 `.backbar`로 맞췄고(`59fa034`), 자리를 비우려고 "비공개 테스트 중" 알약(`.nav-cta`)을 지웠다(`c56c5ec`). 알약이 빠지면서 `space-between`이 내비 링크를 우측으로 밀어 겹치길래 `.nav-links{margin:0 auto}`로 가운데 고정.
+
 ## 2026-11-16
 
 ### 허브에 방문자 카운터 추가
