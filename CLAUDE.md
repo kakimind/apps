@@ -38,7 +38,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 5. **Dear Star, My Wish** (§05) — 저널링 앱. 저장소: `dear-star-my-wish`. 개인정보방침은 `privacy.html` (자기 경로 하위, 루트 아님).
 6. **Orbit Hop** (§06) — 원터치 궤도 아케이드. Google Play 출시 완료 (`com.kakimind.orbithop`, 2026-11-07). 저장소: `orbit-hop-site`. 100단계 티어·위성 100종·20개 언어·오프라인 기본 플레이. 배포 주소도 `/orbit-hop-site/`로, 다른 앱과 달리 `-site` 접미사가 붙음에 주의.
 7. **Top of Gravity** (§07) — 중력 전환 매치-3 퍼즐. Google Play 출시 완료 (`com.kakimind.topgravity`). 저장소: `tower-of-gravity`, **Pages 루트는 `docs/`**. 한국어 스토어 이름은 '중력의 탑'. 1000 스테이지·100개 층·특수 재료 4종·안내자 5명·22개 언어. 배포 주소는 `/tower-of-gravity/`로 저장소명을 그대로 씀.
-8. **Bubble Rumble** (§08) — 물풍선 격자 파티 아케이드 (Flutter). Google Play **출시 완료** (`com.kakimind.bubble_rumble`, 2026-11-16). 사이트 저장소: `bubble-rumble-site`, 앱 저장소는 비공개(로컬 `C:\src\Bubble Rumble`). 버디 8종·스킨 72종·맵 4종·모드 2종(배틀로얄 4인 / 클래식 2vs2), 온라인은 WebRTC P2P.
+8. **Bubble Rumble** (§08) — 버블 격자 파티 아케이드 (Flutter). Google Play **출시 완료** (`com.kakimind.bubble_rumble`, 2026-11-16). 사이트 저장소: `bubble-rumble-site`, 앱 저장소는 비공개(로컬 `C:\src\Bubble Rumble`). 버디 8종·스킨 72종·맵 4종·모드 2종(배틀로얄 4인 / 클래식 2vs2), 온라인은 WebRTC P2P.
 9. **연화사** (§09) — 함께 절하고 명상하는 3D 온라인 사찰 (Next.js 정적 빌드 + Capacitor). Google Play **출시 완료** (`com.kakimind.yunhwasa`, 2026-11-17). 앱 저장소는 비공개(`kakimind/yunhwasa`, 로컬 `C:\src\yunhwasa`)라 **사이트 저장소가 따로 없고, 허브 저장소 안의 `yeonhwasa/` 폴더에서 서빙된다** (`https://kakimind.github.io/yeonhwasa/`, `/privacy.html`). 삼배·108배·염주 108알·명상 3/5/10분·향·연등·오늘의 법문 365개, 실시간 함께 참배는 Cloudflare Workers + Durable Objects.
 10. **LUNARCANA** (§10) — 직접 그린 78장 타로 덱으로 한 장씩 대화하며 읽는 AI 타로 앱 (Flutter). Google Play **비공개 테스트 중** (`com.kakimind.lunarcana`). 로컬 `C:\src\LUNARCANA`. 리딩은 Gemini API(기본) + Groq(대체)로 생성 — 온디바이스 아님. 언어는 18개(2026-11-17에 사이트 표기를 22 → 18로 내림). 스팟 컬러 가넷 `#8a2846`. 사이트는 **공개 저장소 `lunarcana`의 `docs/`** 에서 `https://kakimind.github.io/lunarcana/`로 서빙 (`/privacy.html` 포함).
 
@@ -103,6 +103,7 @@ Google Play 개발자 프로필에 올라가는 아이콘(512)과 헤더(4096×2
 - 2026-11-17: **LUNARCANA 랜딩 스크린샷 교체.** 앱에서 새로 뽑은 한국어 스토어 이미지 5장(`store/screenshots/korean/screen1~5.jpeg`)을 640×1138 webp로 줄여 `docs/shots/`를 갈아끼우고 갤러리를 4칸 → 5칸으로(1040px·760px 중간 브레이크포인트 추가). 사이트 `origin/main 4d47d29`, 앱 저장소 쪽 동일 커밋 `f15a7e6`(현재 브랜치 `i18n-18-languages`, 미푸시).
 - 2026-11-17: **연화사 정식 출시 반영 + 실제 화면 5장 추가.** 킥커·팩트박스 Status `Released`, pending 배지 → Play 링크, 개인정보처리방침의 테스트 광고 문단 삭제·시행일 갱신, 허브 §09 "앱 · 출시됨" (허브 `00c5722`, 이미지 경로 보정 `ffcba47`). 스크린샷 원본은 앱 저장소 `docs/스토어-그림/`, 웹 사본은 `yeonhwasa/shots/*.webp`(720×1280).
 - 2026-11-17: **LUNARCANA 언어 표기 22 → 18.** 랜딩 다섯 군데 + 언어 칩에서 아랍어·힌디어·태국어·그리스어 삭제, 허브 §10도 같이 (사이트 `f572d3a`, 허브 `00c5722`).
+- 2026-11-19: **연화사 랜딩 스크린샷 갱신.** 앱 저장소 `docs/스토어-그림/`의 새 렌더(금빛 불상·연등)를 720×1280 webp로 줄여 `yeonhwasa/shots/`에 반영, `together.webp` → `lantern.webp`(연등 달기)로 교체하고 FIG. 04 캡션·alt를 고쳐 씀. 명상 화면은 원본이 안 바뀌어 그대로 (허브 `dff72b7`).
 - 2026-11-17: 허브에 우측 하단 고정 `↑ TOP` 버튼(`ac15af4`), LUNARCANA 랜딩에 고정 우상단 `← Back to Issue Index` 추가(`59fa034`)하면서 내비의 "비공개 테스트 중" 알약 제거(`c56c5ec`).
 
 ## 미해결 / TODO
