@@ -24,12 +24,9 @@ SPOTS = [("01", (168,  85, 201)),   # PomPom Ville
          ("09", ( 42, 125,  95)),   # 연화사
          ("10", (138,  40,  70))]   # LUNARCANA
 
-# The header spells the count out, and it went stale once already: the
-# artwork still read SIX after two more titles had shipped. Spelling it
-# from the list means adding a title above is the only edit needed.
-COUNT_WORD = {1: "ONE", 2: "TWO", 3: "THREE", 4: "FOUR", 5: "FIVE",
-              6: "SIX", 7: "SEVEN", 8: "EIGHT", 9: "NINE", 10: "TEN",
-              11: "ELEVEN", 12: "TWELVE"}.get(len(SPOTS), str(len(SPOTS)))
+# No written count anywhere in the artwork: titles keep getting added and a
+# spelled-out number goes stale the day the next one ships (it already did
+# once, reading SIX for eight days). The register bars carry the count.
 
 
 def shoulders(size, wght=900):
@@ -103,38 +100,51 @@ def fit_to_height(text, target_h, track, wght=900):
 
 
 # ---------------------------------------------------------------- icon 512
-def build_icon(path, size=512):
+def build_icon(path, size=512, circle=False):
     S, W = 4, 512 * 4
     img = Image.new("RGB", (W, W), PAPER)
     d = ImageDraw.Draw(img)
     p = lambda v: int(round(v * S))
     cx = W / 2
 
-    d.rectangle([p(16), p(16), W - p(16) - 1, W - p(16) - 1], outline=INK, width=p(11))
-    d.rectangle([p(40), p(40), W - p(40) - 1, W - p(40) - 1], outline=INK, width=p(3))
+    # YouTube crops the avatar to a circle, so the frame has to be round and
+    # the stack has to pull in or the outer bars get sliced by the crop.
+    k = 0.88 if circle else 1.0
+    kb = 0.72 if circle else 1.0
+    frame = d.ellipse if circle else d.rectangle
+    i1, i2 = (26, 50) if circle else (16, 40)
+    frame([p(i1), p(i1), W - p(i1) - 1, W - p(i1) - 1], outline=INK, width=p(11))
+    frame([p(i2), p(i2), W - p(i2) - 1, W - p(i2) - 1], outline=INK, width=p(3))
 
     mg_track = -0.045
-    mg_size = fit_to_height("KM", p(156), mg_track)
+    mg_size = fit_to_height("KM", p(156 * k), mg_track)
     mg = render_tracked("KM", shoulders(mg_size), INK, mg_size * mg_track)
 
-    wm_f = mono(p(26), bold=True)
-    wm = render_tracked("KAKIMIND", wm_f, INK, p(26) * 0.22)
+    wm_f = mono(p(26 * k), bold=True)
+    wm = render_tracked("KAKIMIND", wm_f, INK, p(26 * k) * 0.22)
 
-    bar_w, bar_h, gap = p(26), p(9), p(9)
+    bar_w, bar_h, gap = p(26 * kb), p(9 * k), p(9 * kb)
     bars_w = len(SPOTS) * bar_w + (len(SPOTS) - 1) * gap
 
-    stack = mg.height + p(30) + p(5) + p(26) + wm.height + p(30) + bar_h
+    stack = mg.height + p(30 * k) + p(5) + p(26 * k) + wm.height + p(30 * k) + bar_h
     y = p(40) + (W - p(80) - stack) / 2
 
-    y = paste_center(img, mg, cx, y) + p(30)
-    d.rectangle([cx - p(80), y, cx + p(80), y + p(5)], fill=INK)
-    y += p(5) + p(26)
-    y = paste_center(img, wm, cx, y) + p(30)
+    y = paste_center(img, mg, cx, y) + p(30 * k)
+    d.rectangle([cx - p(80 * k), y, cx + p(80 * k), y + p(5)], fill=INK)
+    y += p(5) + p(26 * k)
+    y = paste_center(img, wm, cx, y) + p(30 * k)
 
     bx = cx - bars_w / 2
     for _, colour in SPOTS:
         d.rectangle([bx, y, bx + bar_w, y + bar_h], fill=colour)
         bx += bar_w + gap
+
+    if circle:
+        r = W / 2 - p(i2) - p(3)                      # inside of the thin ring
+        for half, y0, y1 in ((mg.width / 2, y - stack, y - stack + mg.height),
+                             (bars_w / 2, y, y + bar_h)):
+            dy = max(abs(y0 - W / 2), abs(y1 - W / 2))
+            assert half <= 0.9 * (r ** 2 - dy ** 2) ** 0.5, "avatar crowds the ring"
 
     img.resize((size, size), Image.LANCZOS).save(path, "PNG", optimize=True)
 
@@ -188,7 +198,7 @@ def build_header(path, W=4096, H=2304):
                  bx, y + bar_h + p(26))
         bx += bar_w + gap
 
-    paste_center(img, render_tracked(f"{COUNT_WORD} TITLES INSIDE \u2014 GOOGLE PLAY",
+    paste_center(img, render_tracked("APPS AND GAMES ON GOOGLE PLAY",
                                      mono(p(38)), INK_SOFT, p(38) * 0.28),
                  cx, y + bar_h + p(118))
 
@@ -204,11 +214,66 @@ def build_header(path, W=4096, H=2304):
     img.resize((W, H), Image.LANCZOS).save(path, "PNG", optimize=True)
 
 
+# ---------------------------------------------- youtube banner 2560x1440
+# Phones show only the centred 1546x423; desktop widens that band to the
+# full width; TV is the only place the rest of the canvas is ever seen. So
+# every word lives in the band, and the folio bits go in the side wings.
+def build_banner(path, W=2560, H=1440, SAFE_W=1546, SAFE_H=423):
+    S = 2
+    img = Image.new("RGB", (W * S, H * S), PAPER)
+    d = ImageDraw.Draw(img)
+    p = lambda v: int(round(v * S))
+    cx = W * S / 2
+    top = p((H - SAFE_H) / 2)
+    L, R = p(120), W * S - p(120)        # bleeds out past the phone-safe band
+
+    y = paste_center(img, render_tracked("SOLO ANDROID STUDIO",
+                                         mono(p(21), bold=True), INK_SOFT,
+                                         p(21) * 0.36), cx, top + p(40))
+    tr = -0.012
+    ms = fit_to_width("KAKIMIND", p(900), tr)
+    y = paste_center(img, render_tracked("KAKIMIND", shoulders(ms), INK, ms * tr),
+                     cx, y + p(14))
+
+    y += p(22)
+    d.rectangle([L, y, R, y + p(4)], fill=INK)
+    y += p(4) + p(22)
+    dek = render_tracked("Apps and games made end to end by one person — "
+                         "after hours, on weekends.",
+                         serif(p(29), 400, 60, italic=True), INK_SOFT, 0)
+    y = paste_center(img, dek, cx, y)
+
+    # wings: visible on desktop, cropped away on phones
+    fw = mono(p(20))
+    wing_l = render_tracked("KAKIMIND.GITHUB.IO", fw, INK_FAINT, p(20) * 0.20)
+    wing_r = render_tracked("ALL ON GOOGLE PLAY", fw, INK_FAINT,
+                            p(20) * 0.20)
+    paste_at(img, wing_l, p(150), y - p(24))
+    paste_at(img, wing_r, W * S - p(150), y - p(24), align="r")
+    assert max(wing_l.width, wing_r.width) <= p((W - SAFE_W) / 2 - 150) - p(30),         "wing text slices into the phone-safe band"
+
+    y += p(30)
+    bar_w, gap, bar_h = p(92), p(14), p(13)
+    bars_w = len(SPOTS) * bar_w + (len(SPOTS) - 1) * gap
+    bx = cx - bars_w / 2
+    for _, colour in SPOTS:
+        d.rectangle([bx, y, bx + bar_w, y + bar_h], fill=colour)
+        bx += bar_w + gap
+
+    assert max(dek.width, bars_w) <= p(SAFE_W), "banner content wider than the safe band"
+    assert y + bar_h <= top + p(SAFE_H), "banner content taller than the safe band"
+    img.resize((W, H), Image.LANCZOS).save(path, "PNG", optimize=True)
+
+
 icon_path = os.path.join(OUT, "kakimind-developer-icon-512.png")
 head_path = os.path.join(OUT, "kakimind-developer-header-4096x2304.png")
+yt_av_path = os.path.join(OUT, "kakimind-youtube-avatar-800.png")
+yt_bn_path = os.path.join(OUT, "kakimind-youtube-banner-2560x1440.png")
 build_icon(icon_path)
 build_header(head_path)
-for pth in (icon_path, head_path):
+build_icon(yt_av_path, 800, circle=True)
+build_banner(yt_bn_path)
+for pth in (icon_path, head_path, yt_av_path, yt_bn_path):
     im = Image.open(pth)
     print(os.path.basename(pth), im.size, im.mode, f"{os.path.getsize(pth)/1024:.0f} KB")
 
@@ -216,3 +281,18 @@ Image.open(head_path).resize((1400, 788), Image.LANCZOS).save(
     os.path.join(OUT, "preview-header.png"))
 Image.open(icon_path).resize((48, 48), Image.LANCZOS).resize(
     (288, 288), Image.NEAREST).save(os.path.join(OUT, "preview-icon-48.png"))
+
+# what a phone actually shows of the banner, plus the 48px avatar YouTube
+# renders next to a video title
+bn = Image.open(yt_bn_path)
+bn.crop(((2560 - 1546) // 2, (1440 - 423) // 2,
+         (2560 + 1546) // 2, (1440 + 423) // 2)).save(
+    os.path.join(OUT, "preview-banner-phone-safe.png"))
+bn.resize((1280, 720), Image.LANCZOS).save(
+    os.path.join(OUT, "preview-banner-tv.png"))
+av = Image.open(yt_av_path).resize((48, 48), Image.LANCZOS)
+mask = Image.new("L", (480, 480), 0)
+ImageDraw.Draw(mask).ellipse([0, 0, 479, 479], fill=255)
+circ = Image.new("RGB", (480, 480), (255, 255, 255))
+circ.paste(av.resize((480, 480), Image.NEAREST), (0, 0), mask)
+circ.save(os.path.join(OUT, "preview-avatar-48-circle.png"))

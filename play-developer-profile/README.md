@@ -7,6 +7,15 @@ Google Play 개발자 프로필에 올라가는 두 장. 허브와 앱 페이지
 - `kakimind-developer-icon-512.png` — 512×512
 - `kakimind-developer-header-4096x2304.png` — 4096×2304 (16:9)
 
+유튜브 채널(`UCDicnirkQDhzq6Tlc77qODw`)용 두 장도 같은 스크립트가 그린다.
+
+- `kakimind-youtube-avatar-800.png` — 800×800. 유튜브는 **원형으로 자르기**
+  때문에 Play 아이콘의 사각 이중 괘선을 그대로 쓸 수 없다. `build_icon(...,
+  circle=True)`가 원형 괘선으로 바꾸고 안쪽 내용을 당겨 넣는다.
+- `kakimind-youtube-banner-2560x1440.png` — 2560×1440. **휴대폰에서는 가운데
+  1546×423만 보인다.** 글자는 전부 그 띠 안에 있고, 양옆 날개(데스크톱에서만
+  보임)에 폴리오를 뒀다. 띠 밖으로 넘치면 빌드가 assert로 멈춘다.
+
 ## 다시 뽑기
 
 폰트는 저장소에 넣지 않는다 (OFL, 합계 2.4MB). 먼저 받아야 한다:
@@ -25,11 +34,13 @@ curl -sSL -o SpaceMono-Bold.ttf       "$B/spacemono/SpaceMono-Bold.ttf"
 
 ```sh
 python build-profile-assets.py        # out/ 에 생성
-cp out/kakimind-developer-*.png .     # 업로드하는 2장은 루트에 둔다
+cp out/kakimind-*.png .               # 업로드하는 4장은 루트에 둔다
 ```
 
 `out/`에는 눈으로 확인하라고 축소본도 같이 나온다 (`preview-header.png`,
-48px로 줄였다 키운 `preview-icon-48.png`).
+48px로 줄였다 키운 `preview-icon-48.png`, 휴대폰이 실제로 보는 배너 영역
+`preview-banner-phone-safe.png`, TV용 전체 `preview-banner-tv.png`, 원형으로
+자른 48px 아바타 `preview-avatar-48-circle.png`).
 
 ## 앱이 늘면
 
